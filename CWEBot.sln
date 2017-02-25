@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWEBot.Extract.OSSIndex", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B0928C9-41A2-4824-BD20-C3AA3E05A59A}"
 	ProjectSection(SolutionItems) = preProject
+		extract-ossi = extract-ossi
 		extract-ossi.cmd = extract-ossi.cmd
 	EndProjectSection
 EndProject

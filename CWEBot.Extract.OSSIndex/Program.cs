@@ -69,8 +69,8 @@ namespace CWEBot.Extract.OSSIndex
                 do
                 {
                     QueryResponse response = client.GetPackages(pm, from, till).Result;
-                    L.Information("Got {ps} package entries with {vuln} vulnerability entries for package manager {pm}.", response.packages.Count(),
-                        response.packages.Sum(p => p.Vulnerabilities.Count()), pm);
+                    L.Information("Got {ps} package entries with {vuln} vulnerability entries for package manager {pm}.", response.packages.Count(p => p.PackageManager == pm),
+                        response.packages.Where(p => p.PackageManager == pm).Sum(p => p.Vulnerabilities.Count()), pm);
                     hasNext = !string.IsNullOrEmpty(response.NextUrl);
                     foreach (Package package in response.packages)
                     {
@@ -84,7 +84,7 @@ namespace CWEBot.Extract.OSSIndex
                                 Title = v.Title,
                                 Description = v.Description,
                                 References = v.References,
-                                Updated = v.Update.HasValue ? v.Update.Value : DateTime.MinValue,
+                                Updated = v.Updated.HasValue ? v.Updated.Value : DateTime.MinValue,
                                 Published = v.Published.HasValue ? v.Published.Value : DateTime.MinValue
                             })
                         );
@@ -99,7 +99,7 @@ namespace CWEBot.Extract.OSSIndex
                     {
                         hasNext = false;
                     }
-                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.VulnerabilityId).Distinct().Count() > ProgramOptions.VulnerabilitiesLimit)
+                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.VulnerabilityId).Count() > ProgramOptions.VulnerabilitiesLimit)
                     {
                         hasNext = false;
                     }
@@ -113,8 +113,13 @@ namespace CWEBot.Extract.OSSIndex
                 serializer.Serialize(sw, records);
                 
             }
-            L.Information("Extracted {packages} packages with {vuln} total vulnerabilities to output file {f}", records.Select(r => r.PackageId).Distinct().Count(),
-                       records.Select(r => r.VulnerabilityId).Distinct().Count(), OutputFile.FullName);
+            L.Information("Extracted {packages} packages with {vulnt} total and {vulnd} distinct vulnerabilities to output file {f}", records.Select(r => r.PackageId).Distinct().Count(),
+                       records.Select(r => r.VulnerabilityId).Count(), records.Select(r => r.VulnerabilityId).Distinct().Count(), OutputFile.FullName);
+            var duplicates = records.GroupBy(x => new { pid = x.PackageId, vid = x.VulnerabilityId })
+              .Where(g => g.Count() > 1)
+              .Select(y => y.Key)
+              .ToList();
+            L.Information("Found {0} duplicates: {dup}.", duplicates.Count, duplicates);
             return (int)ExitResult.SUCCESS;
         }
 
