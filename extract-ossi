@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ ${CWEBOT_TRACE+x} ]];
+then 
+	mono --trace=$CWEBOT_TRACE ./CWEBot.Extract.OSSIndex/bin/Debug/Extract.exe "$@"
+else
+	mono --debug ./CWEBot.Extract.OSSIndex/bin/Debug/Extract.exe "$@"
+fi
