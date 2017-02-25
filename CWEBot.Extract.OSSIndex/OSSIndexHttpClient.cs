@@ -22,6 +22,7 @@ namespace CWEBot.Extract.OSSIndex
             Contract.Requires(string.IsNullOrEmpty(api_version), "api_version must not be null.");
             //Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(user), "user must not be null.");
             //Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(password), "password must not be null.");
+            L = Log.ForContext<OSSIndexHttpClient>();
             this.ApiVersion = api_version;
             this.BaseUrl = string.Format("/v{0}/vulnerability/", this.ApiVersion);
             this.User = user;
@@ -49,7 +50,7 @@ namespace CWEBot.Extract.OSSIndex
         #endregion
 
         #region Methods
-        public async Task<QueryResponse> GetPackages(string package_manager, long from = 0, long till = -1)
+        public async Task<QueryResponse> GetPackages(string url)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -57,7 +58,9 @@ namespace CWEBot.Extract.OSSIndex
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Add("user-agent", "CWEBot");
-                HttpResponseMessage response = await client.GetAsync(string.Format(this.BaseUrl + "pm/{0}/fromtill/{1}/{2}", package_manager, from, till));
+                L.Information("Sending request {request}...", client.BaseAddress.ToString() + url);
+                HttpResponseMessage response = await client.GetAsync(url);
+                L.Information("Got HTTP {code} for request {request}.", response.StatusCode, response.RequestMessage.RequestUri);
                 if (response.IsSuccessStatusCode)
                 {
                     string r = await response.Content.ReadAsStringAsync();
@@ -65,10 +68,19 @@ namespace CWEBot.Extract.OSSIndex
                 }
                 else
                 {
-                    throw new OSSIndexHttpException(string.Format(this.BaseUrl + "/pm/{0}/{1}/{2}", package_manager, from, till), response.StatusCode, response.ReasonPhrase, response.RequestMessage);
+                    throw new OSSIndexHttpException(url, response.StatusCode, response.ReasonPhrase, response.RequestMessage);
                 }
             }
         }
+        public async Task<QueryResponse> GetPackages(string package_manager, long from = 0, long till = -1)
+        {
+            string url = string.Format(this.BaseUrl + "pm/{0}/fromtill/{1}/{2}", package_manager, from, till);
+            return await GetPackages(url);
+        }
+        #endregion
+
+        #region Fields
+        ILogger L;
         #endregion
     }
 }

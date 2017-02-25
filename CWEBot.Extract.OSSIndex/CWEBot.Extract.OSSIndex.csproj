@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CWEBot.Extract.OSSIndex</RootNamespace>
-    <AssemblyName>CWEBot.Extract.OSSIndex</AssemblyName>
+    <AssemblyName>Extract</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,8 +72,10 @@
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\Vulnerability.cs" />
     <Compile Include="Models\QueryResponse.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="OSSIndexHttpClient.cs" />
     <Compile Include="OSSIndexHttpException.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

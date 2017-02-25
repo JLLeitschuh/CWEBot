@@ -13,8 +13,11 @@ namespace CWEBot.Extract.OSSIndex
         [JsonProperty("pm")]
         public string PackageManager  { get; set; }
 
-        [JsonProperty("id")]
-        public long Id { get; set; }
+        [JsonProperty("pid")]
+        public long PackageId { get; set; }
+
+        [JsonProperty("vid")]
+        public long VulnerabilityId { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }

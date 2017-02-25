@@ -21,9 +21,20 @@ namespace CWEBot.Extract.OSSIndex
         {
             get
             {
-                if (RequestedFromTS.HasValue && RequestedFromTS.Value > 0)
+                if (RequestedFromTS.HasValue)
                 {
-                    return DateTimeOffset.FromUnixTimeMilliseconds(RequestedFromTS.Value).UtcDateTime;
+                    try
+                    {
+                        return DateTimeOffset.FromUnixTimeMilliseconds(RequestedFromTS.Value).UtcDateTime;
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        return DateTime.MinValue;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
                 }
                 else return null;
             }
@@ -37,9 +48,20 @@ namespace CWEBot.Extract.OSSIndex
         {
             get
             {
-                if (RequestedTillTS.HasValue && RequestedTillTS.Value > 0)
+                if (RequestedTillTS.HasValue)
                 {
-                    return DateTimeOffset.FromUnixTimeMilliseconds(RequestedTillTS.Value).UtcDateTime;
+                    try
+                    {
+                        return DateTimeOffset.FromUnixTimeMilliseconds(RequestedTillTS.Value).UtcDateTime;
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        return DateTime.MaxValue;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
                 }
                 else return null;
             }
@@ -54,9 +76,21 @@ namespace CWEBot.Extract.OSSIndex
         {
             get
             {
-                if (ActualFromTS.HasValue && ActualFromTS.Value > 0)
+
+                if (ActualFromTS.HasValue)
                 {
-                    return DateTimeOffset.FromUnixTimeMilliseconds(ActualFromTS.Value).UtcDateTime;
+                    try
+                    {
+                        return DateTimeOffset.FromUnixTimeMilliseconds(ActualFromTS.Value).UtcDateTime;
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        return DateTime.MinValue;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
                 }
                 else return null;
             }
