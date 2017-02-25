@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CWEBot.Core
 {
-    public class Class1
+    public class Transform<T>
     {
+        public Transform()
+        {
+
+        }
     }
 }

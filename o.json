@@ -1414,5 +1414,3296 @@
     ],
     "published": "2017-02-11T23:35:24.605Z",
     "updated": "2017-02-16T15:33:55.695Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8321033853,
+    "vid": 359620,
+    "title": "[CVE-2013-7342]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+    "description": "Cross-site scripting (XSS) vulnerability in flowplayer.swf in the Flash fallback feature in Flowplayer HTML5 5.4.1 allows remote attackers to inject arbitrary web script or HTML via the callback parameter, a related issue to CVE-2013-7341.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-7342",
+      "http://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2013-7342",
+      "https://github.com/flowplayer/flowplayer/commit/017f8c2a0865ab31e01d591adc43d34f2dd60e59",
+      "https://github.com/flowplayer/flowplayer/issues/381"
+    ],
+    "published": "2014-03-24T14:20:39.357Z",
+    "updated": "2017-02-16T00:26:59.049Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8321033853,
+    "vid": 359621,
+    "title": "[CVE-2013-7343]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+    "description": "Cross-site scripting (XSS) vulnerability in flowplayer.swf in the Flash fallback feature in Flowplayer HTML5 5.4.3 allows remote attackers to inject arbitrary web script or HTML by using URL encoding within the callback parameter name.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2013-7342.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-7343",
+      "http://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2013-7343",
+      "https://github.com/flowplayer/flowplayer/commit/27e8f178276c185cbddb4f14c91d4ce7b3865db1",
+      "https://github.com/flowplayer/flowplayer/issues/381"
+    ],
+    "published": "2014-03-24T14:20:39.357Z",
+    "updated": "2017-02-16T00:26:59.047Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8396778968,
+    "vid": 8402398189,
+    "title": "Cross-site Scripting (XSS) via Class Injection",
+    "description": "> The markdown-it renderer blindly appends the character class to the language- part of the tag. If there is a space in the language name, it'll be rendered into two separate classes.\n\\`\\`\\`\nfoo&#x20;bar\ncode\n\\`\\`\\`\nwill be rendered into\n<pre><code style=\"language-foo bar\">\ncode\n</code></pre>\nA malicious user can attach an arbitrary class to the code tag.\n> \n> --[snyk.io](https://snyk.io/vuln/npm:markdown-it:20150702)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/markdown-it/markdown-it/commit/019bbda5f5ee8b7d00f2633340aef3b0d000e3f1",
+      "https://github.com/markdown-it/markdown-it/issues/128",
+      "https://snyk.io/vuln/npm:markdown-it:20150702"
+    ],
+    "published": "2017-02-13T22:26:55.09Z",
+    "updated": "2017-02-16T00:20:03.987Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014105690,
+    "vid": 8402398189,
+    "title": "Cross-site Scripting (XSS) via Class Injection",
+    "description": "> The markdown-it renderer blindly appends the character class to the language- part of the tag. If there is a space in the language name, it'll be rendered into two separate classes.\n\\`\\`\\`\nfoo&#x20;bar\ncode\n\\`\\`\\`\nwill be rendered into\n<pre><code style=\"language-foo bar\">\ncode\n</code></pre>\nA malicious user can attach an arbitrary class to the code tag.\n> \n> --[snyk.io](https://snyk.io/vuln/npm:markdown-it:20150702)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/markdown-it/markdown-it/commit/019bbda5f5ee8b7d00f2633340aef3b0d000e3f1",
+      "https://github.com/markdown-it/markdown-it/issues/128",
+      "https://snyk.io/vuln/npm:markdown-it:20150702"
+    ],
+    "published": "2017-02-13T22:26:55.09Z",
+    "updated": "2017-02-16T00:20:03.987Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014464362,
+    "vid": 8402398191,
+    "title": "Cross-site Scripting (XSS)",
+    "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) due to insufficient user input validation in the jsonp-polling function. Attackers may exploit this by injecting arbitrary script into the browser.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:socket.io:20120417)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/socketio/socket.io/blob/master/History.md#096--2012-04-17",
+      "https://github.com/socketio/socket.io/commit/e98fc7bc865640e777c26dbb1040f33ff103aa78",
+      "https://github.com/socketio/socket.io/issues/925",
+      "https://snyk.io/vuln/npm:socket.io:20120417"
+    ],
+    "published": "2017-02-13T22:34:57.071Z",
+    "updated": "2017-02-16T00:18:06.605Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014464362,
+    "vid": 8402398192,
+    "title": "Insecure Randomness",
+    "description": ">  Affected versions of the package are vulnerable to Insecure Randomness due to the cryptographically insecure Math.random function which can produce predictable values and should not be used in security-sensitive context.\n> \n> -- [Snyk.io](https://snyk.io/vuln/npm:socket.io:20120323)",
+    "references": [
+      "https://github.com/socketio/socket.io/blob/master/History.md#097--2012-07-24",
+      "https://github.com/socketio/socket.io/commit/67b4eb9abdf111dfa9be4176d1709374a2b4ded8",
+      "https://github.com/socketio/socket.io/issues/856",
+      "https://github.com/socketio/socket.io/pull/857",
+      "https://groups.google.com/forum/#!topic/socket_io/Peq-R_BTSx0/discussion",
+      "https://snyk.io/vuln/npm:socket.io:20120323"
+    ],
+    "published": "2017-02-13T22:37:29.133Z",
+    "updated": "2017-02-16T00:17:43.537Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013863569,
+    "vid": 8402398194,
+    "title": "Unsigned Request Headers",
+    "description": "> Affected versions of the package are vulnerable to header forgery, due to the header names not being signed. An attacker could switch the header list order and header value order ending up wit the same signature for two separate requests.\n> \n> -- [Snyk.io](https://snyk.io/vuln/npm:http-signature:20130418)",
+    "references": [
+      "https://github.com/joyent/node-http-signature/commit/658961f638e4418678e70c5794f7f5b03ff43830",
+      "https://github.com/joyent/node-http-signature/issues/10",
+      "https://github.com/joyent/node-http-signature/pull/11",
+      "https://snyk.io/vuln/npm:http-signature:20130418"
+    ],
+    "published": "2017-02-13T22:43:43.487Z",
+    "updated": "2017-02-16T00:16:59.935Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014217950,
+    "vid": 8402398195,
+    "title": "Insecure Randomness",
+    "description": "> Affected versions of the package use the Math.random() function which may generate already-used numbers after 24,000 cycles, making the values predictable for objects requiring unpredictability. It is possible for an attacker to guess the next value to be generated and may use this to access sensitive information.\n>  \n> -- [Snyk](https://snyk.io/vuln/npm:uuid:20111230)",
+    "references": [
+      "https://github.com/defunctzombie/node-uuid/commit/283bd40be4c1836e510ec7a1685288f2d52943f8",
+      "https://snyk.io/vuln/npm:uuid:20111230"
+    ],
+    "published": "2017-02-13T22:51:53.211Z",
+    "updated": "2017-02-16T00:15:24.768Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014583622,
+    "vid": 8402398195,
+    "title": "Insecure Randomness",
+    "description": "> Affected versions of the package use the Math.random() function which may generate already-used numbers after 24,000 cycles, making the values predictable for objects requiring unpredictability. It is possible for an attacker to guess the next value to be generated and may use this to access sensitive information.\n>  \n> -- [Snyk](https://snyk.io/vuln/npm:uuid:20111230)",
+    "references": [
+      "https://github.com/defunctzombie/node-uuid/commit/283bd40be4c1836e510ec7a1685288f2d52943f8",
+      "https://snyk.io/vuln/npm:uuid:20111230"
+    ],
+    "published": "2017-02-13T22:51:53.211Z",
+    "updated": "2017-02-16T00:15:24.768Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014437551,
+    "vid": 8402398197,
+    "title": "Command Injection",
+    "description": "> It is possible to invoke commands from shell.exec() from external sources, allowing an attacker to inject arbitrary commands.\n> \n> -- [Snyk.io](https://snyk.io/vuln/npm:shelljs:20140723)",
+    "references": [
+      "https://github.com/shelljs/shelljs/issues/143",
+      "https://github.com/shelljs/shelljs/issues/495",
+      "https://github.com/shelljs/shelljs/pull/524",
+      "https://github.com/shelljs/shelljs/pull/524/commits/924c85d21f08683d80a98a89eaae8932be259768",
+      "https://snyk.io/vuln/npm:shelljs:20140723"
+    ],
+    "published": "2017-02-13T22:55:58.565Z",
+    "updated": "2017-02-16T00:13:38.971Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013862683,
+    "vid": 8402398200,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Denial of Service (DoS) due to insufficient error handling.\n> \n> -- [Snyk.io](https://snyk.io/vuln/npm:http-proxy:20110901)",
+    "references": [
+      "https://snyk.io/vuln/npm:http-proxy:20110901"
+    ],
+    "published": "2017-02-13T23:32:24.164Z",
+    "updated": "2017-02-16T00:12:13.031Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014532679,
+    "vid": 8402398201,
+    "title": "Cross-site Scripting (XSS)",
+    "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) due to not sanitizing the user input, allowing <script> tags to pass into the command and run javascript.\n> \n> --[Snyk.io](https://snyk.io/vuln/npm:textangular:20131227)",
+    "references": [
+      "https://snyk.io/vuln/npm:textangular:20131227"
+    ],
+    "published": "2017-02-13T23:34:50.038Z",
+    "updated": "2017-02-16T00:08:26.65Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012220816,
+    "vid": 8402398202,
+    "title": "Denial of Service (DoS)",
+    "description": "> Affected versions of the package are vulnerable to Denial of Service (DoS) attacks. It is possible to crash the node server by requesting a url with a trailing backslash in the end.\n> \n> -- [Snyk.io](https://snyk.io/vuln/npm:connect:20120107)",
+    "references": [
+      "https://github.com/senchalabs/connect/commit/2b0e8d69a14312fa2fd3449685be0c0896dfe53e",
+      "https://github.com/senchalabs/connect/issues/452",
+      "https://snyk.io/vuln/npm:connect:20120107"
+    ],
+    "published": "2017-02-13T23:36:36.544Z",
+    "updated": "2017-02-16T00:06:30.68Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984587,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. You are strongly encouraged to remove some files immediately to give yourself the best protection.",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory#2",
+      "http://www.cvedetails.com/cve/CVE-2008-6681/",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:13:13.295Z",
+    "updated": "2017-02-15T03:46:22.984Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984588,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. You are strongly encouraged to remove some files immediately to give yourself the best protection. ",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory#3",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:16:10.65Z",
+    "updated": "2017-02-15T03:46:20.321Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984589,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. ",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory#4",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:18:50.302Z",
+    "updated": "2017-02-15T03:46:17.249Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984590,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. You are strongly encouraged to remove some files immediately to give yourself the best protection.",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory#5",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:21:38.96Z",
+    "updated": "2017-02-15T03:46:14.201Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984591,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. You are strongly encouraged to remove some files immediately to give yourself the best protection.",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory#6",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2275/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:23:46.989Z",
+    "updated": "2017-02-15T03:46:11.184Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 8398984586,
+    "title": "Dojo Security Advisory",
+    "description": "If you have Dojo 0.4 through Dojo 1.4 installed on your site, you are strongly encouraged to read all of this message and take immediate action.\n\nWe recently had a security review done on the Dojo codebase, and some issues were discovered. Most of the issues were in test files or related PHP files, but there were some issues discovered with a few files used by modules. ",
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory",
+      "http://www.cvedetails.com/cve/CVE-2010-2272/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/"
+    ],
+    "published": "2016-05-20T19:08:52.777Z",
+    "updated": "2017-02-15T03:45:55.931Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013447179,
+    "vid": 8402397938,
+    "title": "Cross Site Scripting in unit tests",
+    "description": "An XSS vulnerability was identified in the unit tests. The tests should not be installed on a production system, and are likely not contained in all packages, reducing the impact of the bug.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/DataTables/DataTables/issues/602"
+    ],
+    "published": "2017-02-11T23:37:10.946Z",
+    "updated": "2017-02-15T03:09:26.478Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106606,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106608,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276759650,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106540,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401822077,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402077531,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106778,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012072580,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401821609,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106698,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013697349,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106685,
+    "vid": 8269291159,
+    "title": "Multiple Content Injection",
+    "description": "> Even if [the sanitize] option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n> \n>  -- [redhat.com](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743)",
+    "references": [
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2014-3743",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1850",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3743",
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://nodesecurity.io/advisories/22",
+      "https://snyk.io/vuln/npm:marked:20140131"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-15T02:59:28.353Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014352228,
+    "vid": 8402397921,
+    "title": "Cross Site Scripting in examples",
+    "description": "The example code is vulnerable to cross site scripting attacks. This was resolved by switching markdown processors.",
+    "references": [
+      "https://github.com/facebook/react/issues/3501"
+    ],
+    "published": "2017-02-11T23:01:29.799Z",
+    "updated": "2017-02-15T02:14:33.863Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012190162,
+    "vid": 8399946984,
+    "title": "Insecure temporary files (path traversal)",
+    "description": "The `node-cli` library makes insecure use of temporary files thus allowing the overwriting of files that the starting-user has permission to modify.",
+    "references": [
+      "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=809252",
+      "https://github.com/chriso/cli/issues/86",
+      "https://github.com/node-js-libs/cli/issues/81",
+      "https://nodesecurity.io/advisories/95"
+    ],
+    "published": "2016-07-22T21:21:33.399Z",
+    "updated": "2017-02-14T12:21:15.328Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013712204,
+    "vid": 8402397899,
+    "title": "Faye is vulnerable for the BEAST attack",
+    "description": "> Faye is vulnerable for the TLS BEAST attack with the default settings. This is because when creating a new ssl-enabled server, the priority for cipher suites is not used. \n> \n> -- [github.com](https://github.com/faye/faye/issues/171)",
+    "references": [
+      "https://github.com/faye/faye/commit/e407e08c68dd885896552b59ce65503be85030ad",
+      "https://github.com/faye/faye/issues/171"
+    ],
+    "published": "2017-02-11T21:59:43.55Z",
+    "updated": "2017-02-14T05:39:34.413Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013597443,
+    "vid": 8402397899,
+    "title": "Faye is vulnerable for the BEAST attack",
+    "description": "> Faye is vulnerable for the TLS BEAST attack with the default settings. This is because when creating a new ssl-enabled server, the priority for cipher suites is not used. \n> \n> -- [github.com](https://github.com/faye/faye/issues/171)",
+    "references": [
+      "https://github.com/faye/faye/commit/e407e08c68dd885896552b59ce65503be85030ad",
+      "https://github.com/faye/faye/issues/171"
+    ],
+    "published": "2017-02-11T21:59:43.55Z",
+    "updated": "2017-02-14T05:39:34.413Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8402397897,
+    "title": "Fix self XSS in request url.",
+    "description": "> A user who has copy/pasted data from another or has been tricked into pasting into the accessToken box could XSS him/herself.\n> \n> -- [github.com](https://github.com/swagger-api/swagger-ui/pull/541)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/commit/3a7b66d34565c104e85650439fbc17f89b294e10",
+      "https://github.com/swagger-api/swagger-ui/issues/541"
+    ],
+    "published": "2017-02-11T21:54:12.961Z",
+    "updated": "2017-02-14T05:37:43.914Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8402397919,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A regression in URL parameter escaping. ",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1617",
+      "https://github.com/swagger-api/swagger-ui/pull/2334"
+    ],
+    "published": "2017-02-11T23:00:49.485Z",
+    "updated": "2017-02-13T03:57:13.445Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8402398059,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Method description text is not properly escaped, enabling an XSS vulnerability.\n",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1864"
+    ],
+    "published": "2017-02-12T02:12:17.424Z",
+    "updated": "2017-02-13T03:14:56.953Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8402398056,
+    "title": "Cross Site Scripting (XSS) in message bar",
+    "description": "Unescaped HTML is rendered in the message bar, enabling possible cross site scripting attacks.",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/1945404efef053af688d872da806eec092fac7f0",
+      "https://github.com/swagger-api/swagger-ui/issues/1530"
+    ],
+    "published": "2017-02-12T02:09:11.743Z",
+    "updated": "2017-02-13T03:13:42.233Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8402397897,
+    "title": "Fix self XSS in request url.",
+    "description": "> A user who has copy/pasted data from another or has been tricked into pasting into the accessToken box could XSS him/herself.\n> \n> -- [github.com](https://github.com/swagger-api/swagger-ui/pull/541)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/commit/3a7b66d34565c104e85650439fbc17f89b294e10",
+      "https://github.com/swagger-api/swagger-ui/issues/541"
+    ],
+    "published": "2017-02-11T21:54:12.961Z",
+    "updated": "2017-02-14T05:37:43.914Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8402397919,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A regression in URL parameter escaping. ",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1617",
+      "https://github.com/swagger-api/swagger-ui/pull/2334"
+    ],
+    "published": "2017-02-11T23:00:49.485Z",
+    "updated": "2017-02-13T03:57:13.445Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8402398059,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Method description text is not properly escaped, enabling an XSS vulnerability.\n",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1864"
+    ],
+    "published": "2017-02-12T02:12:17.424Z",
+    "updated": "2017-02-13T03:14:56.953Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8402398056,
+    "title": "Cross Site Scripting (XSS) in message bar",
+    "description": "Unescaped HTML is rendered in the message bar, enabling possible cross site scripting attacks.",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/1945404efef053af688d872da806eec092fac7f0",
+      "https://github.com/swagger-api/swagger-ui/issues/1530"
+    ],
+    "published": "2017-02-12T02:09:11.743Z",
+    "updated": "2017-02-13T03:13:42.233Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8402397897,
+    "title": "Fix self XSS in request url.",
+    "description": "> A user who has copy/pasted data from another or has been tricked into pasting into the accessToken box could XSS him/herself.\n> \n> -- [github.com](https://github.com/swagger-api/swagger-ui/pull/541)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/commit/3a7b66d34565c104e85650439fbc17f89b294e10",
+      "https://github.com/swagger-api/swagger-ui/issues/541"
+    ],
+    "published": "2017-02-11T21:54:12.961Z",
+    "updated": "2017-02-14T05:37:43.914Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8402397919,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A regression in URL parameter escaping. ",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1617",
+      "https://github.com/swagger-api/swagger-ui/pull/2334"
+    ],
+    "published": "2017-02-11T23:00:49.485Z",
+    "updated": "2017-02-13T03:57:13.445Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8402398059,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Method description text is not properly escaped, enabling an XSS vulnerability.\n",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1864"
+    ],
+    "published": "2017-02-12T02:12:17.424Z",
+    "updated": "2017-02-13T03:14:56.953Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8402398056,
+    "title": "Cross Site Scripting (XSS) in message bar",
+    "description": "Unescaped HTML is rendered in the message bar, enabling possible cross site scripting attacks.",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/1945404efef053af688d872da806eec092fac7f0",
+      "https://github.com/swagger-api/swagger-ui/issues/1530"
+    ],
+    "published": "2017-02-12T02:09:11.743Z",
+    "updated": "2017-02-13T03:13:42.233Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8402397897,
+    "title": "Fix self XSS in request url.",
+    "description": "> A user who has copy/pasted data from another or has been tricked into pasting into the accessToken box could XSS him/herself.\n> \n> -- [github.com](https://github.com/swagger-api/swagger-ui/pull/541)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/commit/3a7b66d34565c104e85650439fbc17f89b294e10",
+      "https://github.com/swagger-api/swagger-ui/issues/541"
+    ],
+    "published": "2017-02-11T21:54:12.961Z",
+    "updated": "2017-02-14T05:37:43.914Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8402397919,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A regression in URL parameter escaping. ",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1617",
+      "https://github.com/swagger-api/swagger-ui/pull/2334"
+    ],
+    "published": "2017-02-11T23:00:49.485Z",
+    "updated": "2017-02-13T03:57:13.445Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8402398059,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Method description text is not properly escaped, enabling an XSS vulnerability.\n",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/a906cffea4550eaa5369e4933a50753213cf09df",
+      "https://github.com/swagger-api/swagger-ui/issues/1864"
+    ],
+    "published": "2017-02-12T02:12:17.424Z",
+    "updated": "2017-02-13T03:14:56.953Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8402398056,
+    "title": "Cross Site Scripting (XSS) in message bar",
+    "description": "Unescaped HTML is rendered in the message bar, enabling possible cross site scripting attacks.",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/commit/1945404efef053af688d872da806eec092fac7f0",
+      "https://github.com/swagger-api/swagger-ui/issues/1530"
+    ],
+    "published": "2017-02-12T02:09:11.743Z",
+    "updated": "2017-02-13T03:13:42.233Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014543923,
+    "vid": 8402397894,
+    "title": "target='_blank' vulnerability",
+    "description": "Some phishing attacks can be enabled by having target=\"_blank\" links without an associated rel=\"noopener\"",
+    "references": [
+      "https://dev.to/ben/the-targetblank-vulnerability-by-example",
+      "https://github.com/tinymce/tinymce/issues/3177",
+      "https://www.tinymce.com/docs/configure/content-filtering/#allow_unsafe_link_target"
+    ],
+    "published": "2017-02-11T21:53:03.78Z",
+    "updated": "2017-02-14T05:35:33.304Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012149569,
+    "vid": 8402398080,
+    "title": "Cross Site Scripting",
+    "description": "There are numerous places where using `.text()` will result in decoded html which is then inserted into the DOM during enhancement, resulting in XSS vulnerabilities.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-mobile/commit/71b0eb055204ce2e56df96e537f5a92139c4203d",
+      "https://github.com/jquery/jquery-mobile/issues/2550"
+    ],
+    "published": "2017-02-12T02:38:53.247Z",
+    "updated": "2017-02-14T04:55:32.52Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014003515,
+    "vid": 8402398080,
+    "title": "Cross Site Scripting",
+    "description": "There are numerous places where using `.text()` will result in decoded html which is then inserted into the DOM during enhancement, resulting in XSS vulnerabilities.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-mobile/commit/71b0eb055204ce2e56df96e537f5a92139c4203d",
+      "https://github.com/jquery/jquery-mobile/issues/2550"
+    ],
+    "published": "2017-02-12T02:38:53.247Z",
+    "updated": "2017-02-14T04:55:32.52Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014627894,
+    "vid": 8399920115,
+    "title": "Denial of Service (DoS)",
+    "description": "The node process can be crashed by sending very large payloads to the `ws` server.",
+    "references": [
+      "https://github.com/nodejs/node/issues/7388",
+      "https://github.com/websockets/ws/commit/1242a8ca0de7668fc5fe1ddbfba09d42e95aa7cc",
+      "https://github.com/websockets/ws/issues/679",
+      "https://github.com/websockets/ws/issues/680",
+      "https://github.com/websockets/ws/issues/682",
+      "https://github.com/websockets/ws/pull/681",
+      "https://nodesecurity.io/advisories/120"
+    ],
+    "published": "2016-06-29T12:27:09.844Z",
+    "updated": "2017-02-14T04:51:21.551Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014627894,
+    "vid": 8402392797,
+    "title": "Insecure Randomness",
+    "description": "> Affected versions of the package use the cryptographically insecure Math.random which can produce predictable values and should not be used in security-sensitive context.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:ws:20160920)",
+    "references": [
+      "https://github.com/websockets/ws/commit/7253f06f5432c76f3e82e2c055fcea08b612d8b2",
+      "https://github.com/websockets/ws/pull/832",
+      "https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d#.pbx9ngjer",
+      "https://snyk.io/vuln/npm:ws:20160920"
+    ],
+    "published": "2017-02-07T18:09:56.191Z",
+    "updated": "2017-02-13T20:01:37.207Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402033165,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402033165,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402033165,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430640,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430640,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430640,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012188542,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012188542,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012188542,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430769,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430769,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430769,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013609230,
+    "vid": 8402397890,
+    "title": "SQL injection with PostgreSQL",
+    "description": "Prior to PostgreSQL 9.1, back slashes were not escaped by default which results in a possible SQL Exception when using sequalize with older versions.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/76727a6dda7650730f49155c417dc78efecdf62e",
+      "https://github.com/sequelize/sequelize/issues/3545"
+    ],
+    "published": "2017-02-11T21:51:29.597Z",
+    "updated": "2017-02-14T04:32:53.302Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013609230,
+    "vid": 8399946928,
+    "title": "SQL Injection",
+    "description": "An SQL injection can be caused by inserting GeoJSON documents with single quotes in an attribute. ",
+    "references": [
+      "http://docs.sequelizejs.com/en/latest/api/datatypes/#geometry",
+      "http://geojson.org/",
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/1b4af001dac239d277e545461f1f4932ebf5e058",
+      "https://github.com/sequelize/sequelize/commit/88c04218f5cd031ae65d441b1ece7fc72f266a5b",
+      "https://github.com/sequelize/sequelize/commit/9a0e140f9e9ae7d411cb99266dd0ea4c8fa6b159",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://nodesecurity.io/advisories/122",
+      "https://snyk.io/vuln/npm:sequelize:20160718"
+    ],
+    "published": "2016-07-22T20:37:46Z",
+    "updated": "2017-02-14T04:24:51.852Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013609230,
+    "vid": 8402398187,
+    "title": "SQL Injection",
+    "description": "> Affected versions of the package are vulnerable to SQL Injection via the user search by typing the name they want to search for and the application then executes:\nUser.findAll( { where: { name: req.body.name } } )\na malicious attacker may exploit this to find the users password by entering $password$.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20151019)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/3f11bd97386f1cad4961d2cd054347508ef0aca5",
+      "https://github.com/sequelize/sequelize/issues/4680",
+      "https://snyk.io/vuln/npm:sequelize:20151019"
+    ],
+    "published": "2017-02-13T22:18:17.246Z",
+    "updated": "2017-02-14T04:17:28.138Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014646153,
+    "vid": 8400171357,
+    "title": "[Dependency] Request dependency vulnerable",
+    "description": "There is a transitive dependency to a vulnerable version of **qs**.",
+    "references": [
+      "https://blog.liftsecurity.io/2014/08/06/denial-of-service-in-qs",
+      "https://github.com/yui/yui3/issues/1933"
+    ],
+    "published": "2016-10-05T04:08:24.63Z",
+    "updated": "2017-02-14T04:15:32.925Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014646153,
+    "vid": 8402398186,
+    "title": "Cross-site Scripting (XSS)",
+    "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) attacks via the JSON parser. It is possible to inject HTML in the \"text\" version of the AutoComplete result (e.g. \"foo\"). An attacker may manipulate the content of the results to carry out an XSS attack.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:yui:20120428)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/yui/yui2/blob/master/RELEASENOTES#L124",
+      "https://github.com/yui/yui3/commit/c5a4b8ccdcdae7142a0fd8d9a3ec3a499cd60b3d",
+      "https://snyk.io/vuln/npm:yui:20120428"
+    ],
+    "published": "2017-02-13T21:50:16.101Z",
+    "updated": "2017-02-14T04:12:33.64Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014646162,
+    "vid": 8400171357,
+    "title": "[Dependency] Request dependency vulnerable",
+    "description": "There is a transitive dependency to a vulnerable version of **qs**.",
+    "references": [
+      "https://blog.liftsecurity.io/2014/08/06/denial-of-service-in-qs",
+      "https://github.com/yui/yui3/issues/1933"
+    ],
+    "published": "2016-10-05T04:08:24.63Z",
+    "updated": "2017-02-14T04:15:32.925Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014646162,
+    "vid": 8402398186,
+    "title": "Cross-site Scripting (XSS)",
+    "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) attacks via the JSON parser. It is possible to inject HTML in the \"text\" version of the AutoComplete result (e.g. \"foo\"). An attacker may manipulate the content of the results to carry out an XSS attack.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:yui:20120428)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/yui/yui2/blob/master/RELEASENOTES#L124",
+      "https://github.com/yui/yui3/commit/c5a4b8ccdcdae7142a0fd8d9a3ec3a499cd60b3d",
+      "https://snyk.io/vuln/npm:yui:20120428"
+    ],
+    "published": "2017-02-13T21:50:16.101Z",
+    "updated": "2017-02-14T04:12:33.64Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014645855,
+    "vid": 8400171357,
+    "title": "[Dependency] Request dependency vulnerable",
+    "description": "There is a transitive dependency to a vulnerable version of **qs**.",
+    "references": [
+      "https://blog.liftsecurity.io/2014/08/06/denial-of-service-in-qs",
+      "https://github.com/yui/yui3/issues/1933"
+    ],
+    "published": "2016-10-05T04:08:24.63Z",
+    "updated": "2017-02-14T04:15:32.925Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014645855,
+    "vid": 8402398186,
+    "title": "Cross-site Scripting (XSS)",
+    "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) attacks via the JSON parser. It is possible to inject HTML in the \"text\" version of the AutoComplete result (e.g. \"foo\"). An attacker may manipulate the content of the results to carry out an XSS attack.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:yui:20120428)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/yui/yui2/blob/master/RELEASENOTES#L124",
+      "https://github.com/yui/yui3/commit/c5a4b8ccdcdae7142a0fd8d9a3ec3a499cd60b3d",
+      "https://snyk.io/vuln/npm:yui:20120428"
+    ],
+    "published": "2017-02-13T21:50:16.101Z",
+    "updated": "2017-02-14T04:12:33.64Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013563171,
+    "vid": 8402398185,
+    "title": "Denial of Service via Infinite loop",
+    "description": "> Affected versions of the package are vulnerable to Denial of Service via Infinite loop due to not determining the numeric caps between the parent parameter and the layer parameter in the lib/router/index.js file.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:express:20150803)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/expressjs/express/commit/ee90042d0c4a32a426842e4c1ad5b24b5c0344ac",
+      "https://github.com/expressjs/express/releases/tag/4.13.3",
+      "https://snyk.io/vuln/npm:express:20150803"
+    ],
+    "published": "2017-02-13T21:44:16.399Z",
+    "updated": "2017-02-14T04:09:58.39Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013884133,
+    "vid": 8402281066,
+    "title": "Fix Interpolator.escapeValue defaulting to undefined in some cases",
+    "description": "> [When passing] any `interpolation` options without including `escapeValue`, `this.escapeValue` will get set to `undefined` in `Interpolator`. The documentation indicates `escapeValue` defaults to `true`, so this could cause variables to not be escaped as expected in some cases.\n> \n> -- [github.com](https://github.com/i18next/i18next/pull/826)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/i18next/i18next/issues/826",
+      "https://github.com/i18next/i18next/pull/826/commits/d367309d4427c2d651b0f0b304504cf59c056cab",
+      "https://snyk.io/vuln/npm:i18next:20161013"
+    ],
+    "published": "2016-12-29T23:53:07.583Z",
+    "updated": "2017-02-14T04:03:55.496Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013884133,
+    "vid": 8400185064,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Cross Site Scripting is possible due to a bug in the `interpolation resolution code`.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/i18next/i18next/issues/443",
+      "https://github.com/i18next/i18next/pull/443",
+      "https://github.com/i18next/i18next/pull/443/commits/34e8e13a2b64708a0aed01092e4dbfd0e5013831",
+      "https://snyk.io/vuln/npm:i18next:20151018"
+    ],
+    "published": "2016-10-17T03:58:33.165Z",
+    "updated": "2017-02-13T20:03:17.04Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013477511,
+    "vid": 366572,
+    "title": "[CVE-2014-9682]  Improper Neutralization of Special Elements used in a Command (Command Injection)",
+    "description": "The dns-sync module before 0.1.1 for node.js allows context-dependent attackers to execute arbitrary commands via shell metacharacters in the first argument to the resolve API function.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-9682",
+      "http://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2014-9682",
+      "http://www.openwall.com/lists/oss-security/2014/11/11/6",
+      "https://github.com/skoranga/node-dns-sync/commit/d9abaae384b198db1095735ad9c1c73d7b890a0d",
+      "https://github.com/skoranga/node-dns-sync/issues/1"
+    ],
+    "published": "2015-02-28T01:59:01.963Z",
+    "updated": "2017-02-14T03:51:41.753Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014440937,
+    "vid": 8402397941,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "An attacker can cause a client to execute arbitrary JavaScript by adding malicious code to a channel's topic.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/erming/shout/commit/ef041d6612e20369bf49b17b8162c57b4955a1cc",
+      "https://github.com/erming/shout/issues/345",
+      "https://snyk.io/vuln/npm:shout:20150122"
+    ],
+    "published": "2017-02-11T23:43:41.946Z",
+    "updated": "2017-02-14T03:31:20.047Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014440937,
+    "vid": 8402395112,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A cross site scripting vulnerability was found in this package.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/erming/shout/commit/7ef2da0c832175cea1776a651a3c14051468fdc2",
+      "https://github.com/erming/shout/commit/e0e20e5eefafa206d6214a4ce3d46ed2d85a9bb0",
+      "https://github.com/erming/shout/issues/455",
+      "https://snyk.io/vuln/npm:shout:20160913"
+    ],
+    "published": "2017-02-09T04:13:28.064Z",
+    "updated": "2017-02-14T03:19:38.258Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014413855,
+    "vid": 8398984124,
+    "title": "Partial Sanitization",
+    "description": "> Sanitization is not applied recursively, leading to a vulnerability to certain masking attacks.\n> \n> -- [github,com](https://github.com/punkave/sanitize-html/issues/29)",
+    "references": [
+      "https://github.com/punkave/sanitize-html/commit/762fbc7bba389f3f789cc291c1eb2b64f60f2caf",
+      "https://github.com/punkave/sanitize-html/issues/29",
+      "https://snyk.io/vuln/npm:sanitize-html:20141024"
+    ],
+    "published": "2016-05-20T12:14:12.238Z",
+    "updated": "2017-02-14T03:01:06.524Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014431649,
+    "vid": 8402397862,
+    "title": "Code Execution Through IIFE",
+    "description": "> Passing untrusted data to the .deserialize function can cause arbitrary code execution through an Immediately Invoked Function Expression (IIFE).\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/313)",
+    "references": [
+      "https://github.com/commenthol/serialize-to-js/issues/1",
+      "https://nodesecurity.io/advisories/313",
+      "https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/",
+      "https://snyk.io/vuln/npm:serialize-to-js:20170208",
+      "https://www.npmjs.com/package/serialize-to-js#deserialize"
+    ],
+    "published": "2017-02-11T15:00:46.605Z",
+    "updated": "2017-02-13T23:24:00.865Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014214148,
+    "vid": 8402397817,
+    "title": "Code Execution through IIFE",
+    "description": "> node-serialize can be abused to execute arbitrary code via a immediately invoked function expression (IIFE) if untrusted user input is passed into unserialize()\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/311)",
+    "references": [
+      "https://github.com/luin/serialize/issues/4",
+      "https://nodesecurity.io/advisories/311",
+      "https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/",
+      "https://snyk.io/vuln/npm:node-serialize:20170208"
+    ],
+    "published": "2017-02-10T14:50:59.668Z",
+    "updated": "2017-02-13T22:58:12.26Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399579235,
+    "vid": 8401421281,
+    "title": "Cross Site Scripting (XSS) in ResourceNotFoundError",
+    "description": "A cross site scripting attack can be performed by accessing an unknown resource with encoded JavaScript in the query.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/restify/node-restify/commit/a015067232ad62aa035675dc63a46dce31fed3f3",
+      "https://github.com/restify/node-restify/issues/1018",
+      "https://github.com/restify/node-restify/issues/1031",
+      "https://github.com/restify/node-restify/pull/1032",
+      "https://snyk.io/vuln/npm:restify:20160225"
+    ],
+    "published": "2016-11-13T06:51:45.254Z",
+    "updated": "2017-02-13T22:48:00.7Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014386799,
+    "vid": 8401421281,
+    "title": "Cross Site Scripting (XSS) in ResourceNotFoundError",
+    "description": "A cross site scripting attack can be performed by accessing an unknown resource with encoded JavaScript in the query.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/restify/node-restify/commit/a015067232ad62aa035675dc63a46dce31fed3f3",
+      "https://github.com/restify/node-restify/issues/1018",
+      "https://github.com/restify/node-restify/issues/1031",
+      "https://github.com/restify/node-restify/pull/1032",
+      "https://snyk.io/vuln/npm:restify:20160225"
+    ],
+    "published": "2016-11-13T06:51:45.254Z",
+    "updated": "2017-02-13T22:48:00.7Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014376340,
+    "vid": 8400171452,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Cross Site Scripting is possible by creation of a link which uses the `data:` URI",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jonschlinkert/remarkable/commit/49e24e8f2a431c095ddbb74ecb67cf1cf8f88c47",
+      "https://github.com/jonschlinkert/remarkable/issues/227",
+      "https://github.com/jonschlinkert/remarkable/pull/228",
+      "https://snyk.io/vuln/npm:remarkable:20160820"
+    ],
+    "published": "2016-10-05T06:55:01.06Z",
+    "updated": "2017-02-13T22:40:28.051Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014376319,
+    "vid": 8400171452,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "Cross Site Scripting is possible by creation of a link which uses the `data:` URI",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jonschlinkert/remarkable/commit/49e24e8f2a431c095ddbb74ecb67cf1cf8f88c47",
+      "https://github.com/jonschlinkert/remarkable/issues/227",
+      "https://github.com/jonschlinkert/remarkable/pull/228",
+      "https://snyk.io/vuln/npm:remarkable:20160820"
+    ],
+    "published": "2016-10-05T06:55:01.06Z",
+    "updated": "2017-02-13T22:40:28.051Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402147881,
+    "vid": 8402392797,
+    "title": "Insecure Randomness",
+    "description": "> Affected versions of the package use the cryptographically insecure Math.random which can produce predictable values and should not be used in security-sensitive context.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:ws:20160920)",
+    "references": [
+      "https://github.com/websockets/ws/commit/7253f06f5432c76f3e82e2c055fcea08b612d8b2",
+      "https://github.com/websockets/ws/pull/832",
+      "https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d#.pbx9ngjer",
+      "https://snyk.io/vuln/npm:ws:20160920"
+    ],
+    "published": "2017-02-07T18:09:56.191Z",
+    "updated": "2017-02-13T20:01:37.207Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014552132,
+    "vid": 8402393635,
+    "title": "ReDoS via long string of semicolons",
+    "description": "> tough-cookie package versions 0.9.7 through 2.2.2 are vulnerable to a Regular expression Denial of Service (ReDoS) when long strings of semicolons in the Set-Cookie header, causes the event loop to block for excessive amounts of time.\n> \n> -- [snyk](https://snyk.io/vuln/npm:tough-cookie:20160722)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/salesforce/tough-cookie/commit/e4fc2e0f9ee1b7a818d68f0ac7ea696f377b1534",
+      "https://nodesecurity.io/advisories/130",
+      "https://snyk.io/vuln/npm:tough-cookie:20160722"
+    ],
+    "published": "2017-02-08T10:58:23.299Z",
+    "updated": "2017-02-13T04:04:20.51Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013865632,
+    "vid": 8402397864,
+    "title": "Man in the Middle",
+    "description": "> httpsync downloads binary resources over HTTP, which leaves it vulnerable to MITM attacks. It may be possible to cause remote code execution (RCE) by swapping out the requested binary with an attacker controlled binary if the attacker is on the network or positioned in between the user and the remote server.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/210)",
+    "references": [
+      "https://nodesecurity.io/advisories/210"
+    ],
+    "published": "2017-02-11T15:49:52.218Z",
+    "updated": "2017-02-13T04:03:33.006Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013565741,
+    "vid": 8402398096,
+    "title": "[Dependency] Insecure handlebars dependencies",
+    "description": "The handlebars dependency has a known content injection vulnerability.",
+    "references": [
+      "https://github.com/ericf/express-handlebars/issues/166"
+    ],
+    "published": "2017-02-12T02:58:27.708Z",
+    "updated": "2017-02-13T04:01:28.129Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013489057,
+    "vid": 8402398103,
+    "title": "Possible Cross Site Scripting (XSS) through DOM Clobbering",
+    "description": "It is possible for an attacker to overwrite part of the DOM and enable an XSS attack.",
+    "references": [
+      "https://github.com/cure53/DOMPurify/commit/29de89a87416446fd90242321f8275daea7e22b2",
+      "https://github.com/cure53/DOMPurify/commit/78037ea4db57daba7e171242378d3d97c517dd08",
+      "https://github.com/cure53/DOMPurify/issues/14"
+    ],
+    "published": "2017-02-12T03:02:34.943Z",
+    "updated": "2017-02-13T03:27:25.346Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399845184,
+    "vid": 8402398102,
+    "title": "Sensitive Information Uncleared Before Release",
+    "description": "Memory used for random number generation is not cleared before it is freed, potentially allowing its discovery by malicious applications.",
+    "references": [
+      "https://github.com/dchest/tweetnacl-js/issues/60"
+    ],
+    "published": "2017-02-12T03:01:43.921Z",
+    "updated": "2017-02-13T03:09:43.557Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014565361,
+    "vid": 8402398102,
+    "title": "Sensitive Information Uncleared Before Release",
+    "description": "Memory used for random number generation is not cleared before it is freed, potentially allowing its discovery by malicious applications.",
+    "references": [
+      "https://github.com/dchest/tweetnacl-js/issues/60"
+    ],
+    "published": "2017-02-12T03:01:43.921Z",
+    "updated": "2017-02-13T03:09:43.557Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014565384,
+    "vid": 8402398102,
+    "title": "Sensitive Information Uncleared Before Release",
+    "description": "Memory used for random number generation is not cleared before it is freed, potentially allowing its discovery by malicious applications.",
+    "references": [
+      "https://github.com/dchest/tweetnacl-js/issues/60"
+    ],
+    "published": "2017-02-12T03:01:43.921Z",
+    "updated": "2017-02-13T03:09:43.557Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399824710,
+    "vid": 8398943134,
+    "title": "Man-in-the-middle attack on TLS-protected communication",
+    "description": "Invalid/untrusted certificates were accepted by default due to a flaw in the setting/handling of the rejectUnauthorized setting.",
+    "references": [
+      "https://github.com/socketio/engine.io-client/commit/2c55b278a491bf45313ecc0825cf800e2f7ff5c1",
+      "https://github.com/socketio/engine.io-client/issues/468",
+      "https://nodesecurity.io/advisories/99",
+      "https://www.cigital.com/blog/node-js-socket-io/"
+    ],
+    "published": "2016-05-18T23:05:03.835Z",
+    "updated": "2017-02-13T02:17:43.356Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399373370,
+    "vid": 8398943134,
+    "title": "Man-in-the-middle attack on TLS-protected communication",
+    "description": "Invalid/untrusted certificates were accepted by default due to a flaw in the setting/handling of the rejectUnauthorized setting.",
+    "references": [
+      "https://github.com/socketio/engine.io-client/commit/2c55b278a491bf45313ecc0825cf800e2f7ff5c1",
+      "https://github.com/socketio/engine.io-client/issues/468",
+      "https://nodesecurity.io/advisories/99",
+      "https://www.cigital.com/blog/node-js-socket-io/"
+    ],
+    "published": "2016-05-18T23:05:03.835Z",
+    "updated": "2017-02-13T02:17:43.356Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013541377,
+    "vid": 8398943134,
+    "title": "Man-in-the-middle attack on TLS-protected communication",
+    "description": "Invalid/untrusted certificates were accepted by default due to a flaw in the setting/handling of the rejectUnauthorized setting.",
+    "references": [
+      "https://github.com/socketio/engine.io-client/commit/2c55b278a491bf45313ecc0825cf800e2f7ff5c1",
+      "https://github.com/socketio/engine.io-client/issues/468",
+      "https://nodesecurity.io/advisories/99",
+      "https://www.cigital.com/blog/node-js-socket-io/"
+    ],
+    "published": "2016-05-18T23:05:03.835Z",
+    "updated": "2017-02-13T02:17:43.356Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399550974,
+    "vid": 8269193300,
+    "title": "Denial of Service",
+    "description": "The qs module blocks while parsing strings representing deeply nested objects, preventing application access until processing is complete.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://nodesecurity.io/advisories/28",
+      "https://nodesecurity.io/advisories/qs_dos_extended_event_loop_blocking",
+      "https://snyk.io/vuln/npm:qs:20140806-1"
+    ],
+    "published": "2016-05-20T13:43:13.445Z",
+    "updated": "2017-02-12T13:15:41.577Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399550974,
+    "vid": 8374376467,
+    "title": "Denial of Service (Memory Exhaustion)",
+    "description": "The qs module before 1.0.0 in Node.js does not call the compact function for array data, which allows remote attackers to cause a denial of service (memory consumption) by using a large index value to create a sparse array. ",
+    "references": [
+      "http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7191",
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/tj/node-querystring/issues/104",
+      "https://nodesecurity.io/advisories/29",
+      "https://snyk.io/vuln/npm:qs:20140806"
+    ],
+    "published": "2016-05-20T13:43:35.825Z",
+    "updated": "2017-02-08T15:49:53.716Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014336590,
+    "vid": 8269193300,
+    "title": "Denial of Service",
+    "description": "The qs module blocks while parsing strings representing deeply nested objects, preventing application access until processing is complete.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://nodesecurity.io/advisories/28",
+      "https://nodesecurity.io/advisories/qs_dos_extended_event_loop_blocking",
+      "https://snyk.io/vuln/npm:qs:20140806-1"
+    ],
+    "published": "2016-05-20T13:43:13.445Z",
+    "updated": "2017-02-12T13:15:41.577Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014336590,
+    "vid": 8374376467,
+    "title": "Denial of Service (Memory Exhaustion)",
+    "description": "The qs module before 1.0.0 in Node.js does not call the compact function for array data, which allows remote attackers to cause a denial of service (memory consumption) by using a large index value to create a sparse array. ",
+    "references": [
+      "http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7191",
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/tj/node-querystring/issues/104",
+      "https://nodesecurity.io/advisories/29",
+      "https://snyk.io/vuln/npm:qs:20140806"
+    ],
+    "published": "2016-05-20T13:43:35.825Z",
+    "updated": "2017-02-08T15:49:53.716Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013563171,
+    "vid": 8269359139,
+    "title": "Cross-site scripting (XSS)",
+    "description": "> Vulnerable versions of express do not specify a charset field in the content-type header while displaying 400 level response messages. The lack of enforcing user's browser to set correct charset, could be leveraged by an attacker to perform a cross-site scripting attack, using non-standard encodings, like UTF-7.\n> \n> --[nodesecurity.io](https://nodesecurity.io/advisories/8)",
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6393",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://nodesecurity.io/advisories/8",
+      "https://nodesecurity.io/advisories/express-no-charset-in-content-type-header",
+      "https://snyk.io/vuln/npm:express:20140912"
+    ],
+    "published": "2016-05-16T12:34:41.142Z",
+    "updated": "2017-02-12T13:14:23.707Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014428322,
+    "vid": 8402376835,
+    "title": "Directory Traversal",
+    "description": "> When relying on the root option to restrict file access it may be possible for an application consumer to escape out of the restricted directory and access files in a similarly named directory. \n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/32)",
+    "references": [
+      "https://github.com/visionmedia/send/commit/9c6ca9b2c0b880afd3ff91ce0d211213c5fa5f9a",
+      "https://github.com/visionmedia/send/pull/59",
+      "https://nodesecurity.io/advisories/32"
+    ],
+    "published": "2017-01-25T17:29:06.692Z",
+    "updated": "2017-02-12T13:08:52.47Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014432489,
+    "vid": 8300989468,
+    "title": "Open redirect vulnerability",
+    "description": "Open redirect vulnerability in the serve-static plugin before 1.7.2 for Node.js, when mounted at the root, allows remote attackers to redirect users to arbitrary web sites and conduct phishing attacks via a // (slash slash) followed by a domain in the PATH_INFO to the default URI.",
+    "references": [
+      "https://github.com/expressjs/serve-static/issues/26",
+      "https://nodesecurity.io/advisories/35",
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1164",
+      "https://www.owasp.org/index.php/Open_redirect"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-12T13:03:36.823Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014574916,
+    "vid": 8269475749,
+    "title": "Command Injection",
+    "description": "User input is directly passed to exec",
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4130",
+      "https://github.com/FredrikNoren/ungit/issues/486",
+      "https://nodesecurity.io/advisories/40",
+      "https://snyk.io/vuln/npm:ungit:20150122"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-12T12:58:08.67Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014645445,
+    "vid": 8301035530,
+    "title": "XSS via filename",
+    "description": "serve-index directory listings are vulnerable to XSS via arbitrary uploader-controlled filenames.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/80.html",
+      "https://github.com/expressjs/serve-index/issues/28",
+      "https://nodesecurity.io/advisories/34",
+      "https://snyk.io/vuln/npm:serve-index:20150314",
+      "https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-12T12:54:53.749Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399577734,
+    "vid": 8301035530,
+    "title": "XSS via filename",
+    "description": "serve-index directory listings are vulnerable to XSS via arbitrary uploader-controlled filenames.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/80.html",
+      "https://github.com/expressjs/serve-index/issues/28",
+      "https://nodesecurity.io/advisories/34",
+      "https://snyk.io/vuln/npm:serve-index:20150314",
+      "https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-12T12:54:53.749Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014432265,
+    "vid": 8301035530,
+    "title": "XSS via filename",
+    "description": "serve-index directory listings are vulnerable to XSS via arbitrary uploader-controlled filenames.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/80.html",
+      "https://github.com/expressjs/serve-index/issues/28",
+      "https://nodesecurity.io/advisories/34",
+      "https://snyk.io/vuln/npm:serve-index:20150314",
+      "https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-12T12:54:53.749Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013447179,
+    "vid": 8402376766,
+    "title": "Cross-Site Scripting",
+    "description": "> Cross-site scripting (XSS) vulnerability in the DataTables plugin 1.10.8 and earlier for jQuery allows remote attackers to inject arbitrary web script or HTML via the scripts parameter to media/unit_testing/templates/6776.php.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/5)",
+    "references": [
+      "http://www.securityfocus.com/archive/1/archive/1/536437/100/0/threaded",
+      "https://github.com/DataTables/DataTables/issues/602",
+      "https://github.com/DataTables/DataTablesSrc/commit/ccf86dc5982bd8e16d",
+      "https://nodesecurity.io/advisories/5",
+      "https://snyk.io/vuln/npm:datatables:20150918",
+      "https://www.netsparker.com/cve-2015-6384-xss-vulnerability-identified-in-datatables/"
+    ],
+    "published": "2017-01-25T16:40:48.412Z",
+    "updated": "2017-02-12T12:48:32.171Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013447179,
+    "vid": 7677233893,
+    "title": "[CVE-2015-6584]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+    "description": "Cross-site scripting (XSS) vulnerability in the DataTables plugin 1.10.8 and earlier for jQuery allows remote attackers to inject arbitrary web script or HTML via the scripts parameter to media/unit_testing/templates/6776.php.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-6584",
+      "http://packetstormsecurity.com/files/133555/DataTables-1.10.8-Cross-Site-Scripting.html",
+      "http://seclists.org/fulldisclosure/2015/Sep/37",
+      "http://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2015-6584",
+      "http://www.securityfocus.com/archive/1/archive/1/536437/100/0/threaded",
+      "https://www.netsparker.com/cve-2015-6384-xss-vulnerability-identified-in-datatables/"
+    ],
+    "published": "2015-09-11T15:59:00.097Z",
+    "updated": "2017-02-10T07:42:55.548Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014103613,
+    "vid": 8402377072,
+    "title": "Content Injection via TileJSON attribute",
+    "description": "> Mapbox.js versions 1.x prior to 1.6.5 and 2.x prior to 2.1.7 are vulnerable to a cross-site-scripting attack in certain uncommon usage scenarios.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/49)",
+    "references": [
+      "https://hackerone.com/reports/54327a",
+      "https://nodesecurity.io/advisories/49"
+    ],
+    "published": "2017-01-25T19:48:36.396Z",
+    "updated": "2017-02-12T12:45:40.8Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014103613,
+    "vid": 8398864616,
+    "title": "Cross Site Scripting (Content Injection)",
+    "description": "If an attacker named a project in our classic map editor with a malicious payload for the title, the payload would execute when a victim viewed the share page of the map and clicked on the share control. The map share control is an arrow button under the zoom control that when clicked creates a modal dialog that allows a user to easily share a Mapbox map on Facebook, Twitter, Pinterest, or an external website.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://hackerone.com/reports/99245",
+      "https://nodesecurity.io/advisories/74",
+      "https://snyk.io/vuln/npm:mapbox.js:20160112"
+    ],
+    "published": "2016-05-16T11:26:27.75Z",
+    "updated": "2017-02-12T12:30:03.09Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014103613,
+    "vid": 8398864617,
+    "title": "Cross Site Scripting (Content Injection)",
+    "description": "If an attacker named a project in our classic map editor with a malicious payload for the title, the payload would execute when a victim viewed the share page of the map and clicked on the share control. The map share control is an arrow button under the zoom control that when clicked creates a modal dialog that allows a user to easily share a Mapbox map on Facebook, Twitter, Pinterest, or an external website.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/74.html",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://hackerone.com/reports/99245",
+      "https://nodesecurity.io/advisories/74#2",
+      "https://snyk.io/vuln/npm:mapbox.js:20160112"
+    ],
+    "published": "2016-05-16T11:29:30.525Z",
+    "updated": "2017-02-12T12:29:16.192Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012063544,
+    "vid": 8399946982,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> The package is vulnerable to Regular expression Denial of Service (ReDoS).\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:ansi2html:20151025)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/agnoster/ansi2html/blob/master/lib/index.js#L52",
+      "https://nodesecurity.io/advisories/51",
+      "https://snyk.io/vuln/npm:ansi2html:20151025",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-07-22T21:14:14.128Z",
+    "updated": "2017-02-12T12:42:51.43Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8320691767,
+    "vid": 8402397883,
+    "title": "Cross Site Scripting",
+    "description": "A vulnerability in ZeroClipboard makes TableTools exploitable with a cross site scripting attack.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/DataTables/DataTables/issues/159",
+      "https://github.com/DataTables/TableTools/commit/668892e",
+      "https://packetstormsecurity.com/files/120376/zeroclipboard-xss.txt"
+    ],
+    "published": "2017-02-11T21:45:27.422Z",
+    "updated": "2017-02-11T21:46:42.945Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8399946929,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A malicious swagger JSON document can be loaded via the `url` parameter in a query, taking advantage of an XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/issues/1866",
+      "https://github.com/swagger-api/swagger-ui/pull/1867",
+      "https://nodesecurity.io/advisories/123",
+      "https://snyk.io/vuln/npm:swagger-ui:20160720"
+    ],
+    "published": "2016-07-22T20:41:00.373Z",
+    "updated": "2017-02-11T17:06:48.676Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014509999,
+    "vid": 8402377071,
+    "title": "XSS via Content-type header",
+    "description": "> By using a malicious server which returns script as the value of the Content-Type header, it is possible to execute arbitrary code using the demonstration capabilities of Swagger-UI.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/131)",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/issues/1863",
+      "https://nodesecurity.io/advisories/131"
+    ],
+    "published": "2017-01-25T19:30:13.233Z",
+    "updated": "2017-02-11T16:55:12.634Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8399946929,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A malicious swagger JSON document can be loaded via the `url` parameter in a query, taking advantage of an XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/issues/1866",
+      "https://github.com/swagger-api/swagger-ui/pull/1867",
+      "https://nodesecurity.io/advisories/123",
+      "https://snyk.io/vuln/npm:swagger-ui:20160720"
+    ],
+    "published": "2016-07-22T20:41:00.373Z",
+    "updated": "2017-02-11T17:06:48.676Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402070618,
+    "vid": 8402377071,
+    "title": "XSS via Content-type header",
+    "description": "> By using a malicious server which returns script as the value of the Content-Type header, it is possible to execute arbitrary code using the demonstration capabilities of Swagger-UI.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/131)",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/issues/1863",
+      "https://nodesecurity.io/advisories/131"
+    ],
+    "published": "2017-01-25T19:30:13.233Z",
+    "updated": "2017-02-11T16:55:12.634Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8399946929,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A malicious swagger JSON document can be loaded via the `url` parameter in a query, taking advantage of an XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/issues/1866",
+      "https://github.com/swagger-api/swagger-ui/pull/1867",
+      "https://nodesecurity.io/advisories/123",
+      "https://snyk.io/vuln/npm:swagger-ui:20160720"
+    ],
+    "published": "2016-07-22T20:41:00.373Z",
+    "updated": "2017-02-11T17:06:48.676Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402055863,
+    "vid": 8402377071,
+    "title": "XSS via Content-type header",
+    "description": "> By using a malicious server which returns script as the value of the Content-Type header, it is possible to execute arbitrary code using the demonstration capabilities of Swagger-UI.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/131)",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/issues/1863",
+      "https://nodesecurity.io/advisories/131"
+    ],
+    "published": "2017-01-25T19:30:13.233Z",
+    "updated": "2017-02-11T16:55:12.634Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8399946929,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A malicious swagger JSON document can be loaded via the `url` parameter in a query, taking advantage of an XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/swagger-api/swagger-ui/issues/1866",
+      "https://github.com/swagger-api/swagger-ui/pull/1867",
+      "https://nodesecurity.io/advisories/123",
+      "https://snyk.io/vuln/npm:swagger-ui:20160720"
+    ],
+    "published": "2016-07-22T20:41:00.373Z",
+    "updated": "2017-02-11T17:06:48.676Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399534978,
+    "vid": 8402377071,
+    "title": "XSS via Content-type header",
+    "description": "> By using a malicious server which returns script as the value of the Content-Type header, it is possible to execute arbitrary code using the demonstration capabilities of Swagger-UI.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/131)",
+    "references": [
+      "https://github.com/swagger-api/swagger-ui/issues/1863",
+      "https://nodesecurity.io/advisories/131"
+    ],
+    "published": "2017-01-25T19:30:13.233Z",
+    "updated": "2017-02-11T16:55:12.634Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014005230,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014005230,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004206,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004206,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004202,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004202,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004199,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014004199,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619631,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619631,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401496074,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401496074,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515757,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515757,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515153,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515153,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515151,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515151,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774161,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774161,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774169,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774169,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774149,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774149,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774147,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774147,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515172,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399515172,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774153,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401774153,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619699,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619699,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619706,
+    "vid": 8399946931,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "A potential bug enables the injecting of XSS content into the closeText option while using the component ui dialog.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/pull/1622",
+      "https://nodesecurity.io/advisories/127",
+      "https://snyk.io/vuln/npm:jquery-ui:20160721"
+    ],
+    "published": "2016-07-22T20:47:55.423Z",
+    "updated": "2017-02-11T17:04:14.432Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7276619706,
+    "vid": 8397111714,
+    "title": "Cross Site Scripting (XSS)",
+    "description": "jQuery.ui.dialog's title option is not properly escaped before being set in the dom, resulting in an XSS vulnerability for applications with dynamic titles.",
+    "references": [
+      "http://bugs.jqueryui.com/ticket/6016",
+      "https://bugs.jqueryui.com/ticket/8861",
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/jquery/jquery-ui/commit/f2854408cce7e4b7fc6bf8676761904af9c96bde",
+      "https://snyk.io/vuln/npm:jquery-ui:20121127"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-07T21:58:16.848Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014026981,
+    "vid": 8399962424,
+    "title": "Forgeable Public/Private Tokens",
+    "description": "A malicious user with knowledge of the public key can forge tokens that pass verification, due to a weakness caused by allowing the attacker to specify the verification function algorithm.",
+    "references": [
+      "https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/",
+      "https://github.com/brianloveswords/node-jws/commit/585d0e1e97b6747c10cf5b7689ccc5618a89b299#diff-4ac32a78649ca5bdd8e0ba38b7006a1e",
+      "https://nodesecurity.io/advisories/88",
+      "https://snyk.io/vuln/npm:jws:20160726"
+    ],
+    "published": "2016-08-06T08:10:56.242Z",
+    "updated": "2017-02-11T16:50:13.489Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012229630,
+    "vid": 8400137197,
+    "title": "Information Exposure Through Timing Discrepancy",
+    "description": "A weakness in the string comparison mechanism can allow attackers to guess the secret one character at a time.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/208.html",
+      "https://github.com/tj/node-cookie-signature/blob/master/History.md#104--2014-06-25",
+      "https://github.com/tj/node-cookie-signature/commit/39791081692e9e14aa62855369e1c7f80fbfd50e",
+      "https://nodesecurity.io/advisories/134",
+      "https://snyk.io/vuln/npm:cookie-signature:20160804"
+    ],
+    "published": "2016-09-03T10:50:47.464Z",
+    "updated": "2017-02-11T16:32:56.863Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014313298,
+    "vid": 8400188017,
+    "title": "Code Injection",
+    "description": "Sandboxing is not used while executing views, allowing for arbitrary code injection.",
+    "references": [
+      "https://github.com/pouchdb/pouchdb/compare/6.0.3...6.0.5",
+      "https://github.com/pouchdb/pouchdb/issues/5612",
+      "https://nodesecurity.io/advisories/143",
+      "https://snyk.io/vuln/npm:pouchdb:20160830",
+      "https://www.owasp.org/index.php/Code_Injection"
+    ],
+    "published": "2016-10-19T11:28:53.128Z",
+    "updated": "2017-02-11T16:26:20.505Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014372605,
+    "vid": 8400188018,
+    "title": "Code Injection",
+    "description": "Arbitrary code execution is possible due to `eval` usage for expression evaluation.",
+    "references": [
+      "https://gist.github.com/ChALkeR/415a41b561ebea9b341efbb40b802fc9",
+      "https://github.com/MoOx/reduce-css-calc/blob/master/CHANGELOG.md#125---2016-08-22",
+      "https://nodesecurity.io/advisories/144",
+      "https://snyk.io/vuln/npm:reduce-css-calc:20160913",
+      "https://www.owasp.org/index.php/Code_Injection"
+    ],
+    "published": "2016-10-19T11:30:42.874Z",
+    "updated": "2017-02-11T16:25:35.451Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014409714,
+    "vid": 8400192333,
+    "title": "Same Origin Policy Bypass",
+    "description": "Overly permissive CORS settings allow all requests from all origins, with credentials, leaving apps open to attack by third-party sites. There is no error/warning of mis-configuration prior to release 0.12.7.",
+    "references": [
+      "http://sailsjs.org/documentation/concepts/security/cors",
+      "http://sailsjs.org/documentation/reference/configuration/sails-config-cors",
+      "https://github.com/balderdashy/sails/commit/0057123a0321be6758845abbeb4290bf418ce542",
+      "https://nodesecurity.io/advisories/148",
+      "https://snyk.io/vuln/npm:sails:20161013"
+    ],
+    "published": "2016-10-22T13:40:43.205Z",
+    "updated": "2017-02-11T16:24:31.249Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402033165,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8402033165,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430640,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430640,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012188542,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012188542,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8400719711,
+    "title": "SQL Injection",
+    "description": "SQLite was defaulting to the MySQL backslash-escaped style, but it uses postgres-style escaping. This is an SQL-injection vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/c876192aa6ce1f67e22b26a4d175b8478615f42d",
+      "https://nodesecurity.io/advisories/113"
+    ],
+    "published": "2016-11-14T04:40:29.062Z",
+    "updated": "2017-02-11T16:17:21.01Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430328,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430769,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014430769,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013609230,
+    "vid": 8398983276,
+    "title": "Potential SQL Injection",
+    "description": "Beginning with sequelize version 3.0.0, two security related changes were introduced:\n\n* findOne no longer takes a string / integer / binary argument to represent a primaryKey. Use findById instead.\n* where: \"raw query\" is no longer legal, you must now explicitly use where: [\"raw query\", [replacements]]",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300",
+      "https://nodesecurity.io/advisories/109",
+      "https://snyk.io/vuln/npm:sequelize:20150517"
+    ],
+    "published": "2016-05-19T16:37:25.57Z",
+    "updated": "2017-02-11T16:20:11.486Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013609230,
+    "vid": 8398983278,
+    "title": "SQL Injection in IN statement",
+    "description": "> sequelize versions prior to 3.20.0 improperly escape arrays of strings bound to named parameters.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:sequelize:20160329)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://nodesecurity.io/advisories/102",
+      "https://snyk.io/vuln/npm:sequelize:20160329"
+    ],
+    "published": "2016-05-19T16:46:03.705Z",
+    "updated": "2017-02-08T11:55:52.803Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014278250,
+    "vid": 8402235921,
+    "title": "[CVE-2016-7191] Authentication Bypass",
+    "description": "> An elevation of privilege vulnerability exists when the Azure Active Directory Passport library (Passport-Azure-AD for Node.js) incorrectly validates ID tokens.\n> \n> An attacker who successfully exploits this vulnerability could bypass Azure Active Directory authentication to a targeted host web application. To exploit this vulnerability, an attacker would have to send a specially crafted token to the target web application that contains a valid user's identity claims. This update addresses the vulnerability by correcting how ID tokens are validated when Passport strategies take advantage of Azure Active Directory.\n> \n> -- [microsoft.com](https://support.microsoft.com/en-us/kb/3187742)",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7191",
+      "https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD",
+      "https://nodesecurity.io/advisories/151",
+      "https://snyk.io/vuln/npm:passport-azure-ad:20160824",
+      "https://support.microsoft.com/en-us/kb/3187742"
+    ],
+    "published": "2016-12-07T23:51:43.634Z",
+    "updated": "2017-02-11T16:10:08.999Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014068747,
+    "vid": 8402270280,
+    "title": "Man in the Middle (MitM)",
+    "description": "> libxl downloads zipped resources over HTTP, which leaves it vulnerable to MITM attacks.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/178)\n\nThe developer [explains](https://github.com/DirtyHairy/node-libxl/issues/15) that this is an installation-time only problem which cannot be resolved in a reasonable manner, and provides a workaround.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/300.html",
+      "https://github.com/DirtyHairy/node-libxl/issues/15",
+      "https://nodesecurity.io/advisories/178",
+      "https://snyk.io/vuln/npm:libxl:20161219"
+    ],
+    "published": "2016-12-19T13:11:44.165Z",
+    "updated": "2017-02-11T15:59:58.389Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399675861,
+    "vid": 8402290168,
+    "title": "Man in the Middle (MitM)",
+    "description": "> prebuild-lwip downloads resources over HTTP, which leaves it vulnerable to MITM attacks.\n> \n> -- [nodesecurity.io] (https://nodesecurity.io/advisories/248)",
+    "references": [
+      "https://nodesecurity.io/advisories/248#2",
+      "https://snyk.io/vuln/npm:prebuild-lwip:20170101"
+    ],
+    "published": "2017-01-07T19:59:46.688Z",
+    "updated": "2017-02-11T15:37:55.653Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8398738458,
+    "vid": 8402283816,
+    "title": "Man in the Middle (MitM)",
+    "description": "> qbs downloads binary resources over HTTP, which leaves it vulnerable to MITM attacks. It may be possible to cause remote code execution (RCE) by swapping out the requested resources with an attacker controlled copy if the attacker is on the network or positioned in between the user and the remote server.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/266)",
+    "references": [
+      "https://nodesecurity.io/advisories/266",
+      "https://snyk.io/vuln/npm:qbs:20170102"
+    ],
+    "published": "2017-01-02T19:45:45.874Z",
+    "updated": "2017-02-11T15:36:02.425Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8398793659,
+    "vid": 8402283691,
+    "title": "Man in the Middle (MitM)",
+    "description": "> wixtoolset downloads binary resources over HTTP, which leaves it vulnerable to MITM attacks. It may be possible to cause remote code execution (RCE) by swapping out the requested resources with an attacker controlled copy if the attacker is on the network or positioned in between the user and the remote server.\n> \n> -- [nodesecurity.io](https://nodesecurity.io/advisories/264)",
+    "references": [
+      "https://github.com/rewiredpictures/node-wixtoolset/blob/master/install.js#L7",
+      "https://nodesecurity.io/advisories/264",
+      "https://snyk.io/vuln/npm:wixtoolset:20170102"
+    ],
+    "published": "2017-01-02T17:13:57.83Z",
+    "updated": "2017-02-11T15:32:32.48Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7277498132,
+    "vid": 8269062688,
+    "title": "Directory Traversal",
+    "description": "Versions prior to 0.2.5 did not properly prevent folder traversal. Literal dots in a path were resolved out, but url encoded dots were not. Thus, a request like /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd would leak sensitive data from the server.\n\nAs of version 0.2.5, any '/../' in the request path, urlencoded or not, will be replaced with '/'. If your application depends on url traversal, then you are encouraged to please refactor so that you do not depend on having .. in url paths, as this tends to expose data that you may be surprised to be exposing.",
+    "references": [
+      "http://blog.npmjs.org/post/80277229932/newly-paranoid-maintainers",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3744",
+      "https://cwe.mitre.org/data/definitions/22.html",
+      "https://github.com/isaacs/st#security-status",
+      "https://nodesecurity.io/advisories/36",
+      "https://snyk.io/vuln/npm:st:20140206"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-08T16:02:26.54Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399803883,
+    "vid": 8269062688,
+    "title": "Directory Traversal",
+    "description": "Versions prior to 0.2.5 did not properly prevent folder traversal. Literal dots in a path were resolved out, but url encoded dots were not. Thus, a request like /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd would leak sensitive data from the server.\n\nAs of version 0.2.5, any '/../' in the request path, urlencoded or not, will be replaced with '/'. If your application depends on url traversal, then you are encouraged to please refactor so that you do not depend on having .. in url paths, as this tends to expose data that you may be surprised to be exposing.",
+    "references": [
+      "http://blog.npmjs.org/post/80277229932/newly-paranoid-maintainers",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3744",
+      "https://cwe.mitre.org/data/definitions/22.html",
+      "https://github.com/isaacs/st#security-status",
+      "https://nodesecurity.io/advisories/36",
+      "https://snyk.io/vuln/npm:st:20140206"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-08T16:02:26.54Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014116132,
+    "vid": 8302576510,
+    "title": "Denial of service",
+    "description": "Failure to validate variable existence can lead to server crashes in certain use-cases.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4179",
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/hapijs/yar/issues/34",
+      "https://nodesecurity.io/advisories/44",
+      "https://snyk.io/vuln/npm:yar:20140616"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-08T15:54:58.325Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014639643,
+    "vid": 8302576510,
+    "title": "Denial of service",
+    "description": "Failure to validate variable existence can lead to server crashes in certain use-cases.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4179",
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/hapijs/yar/issues/34",
+      "https://nodesecurity.io/advisories/44",
+      "https://snyk.io/vuln/npm:yar:20140616"
+    ],
+    "published": "0001-01-01T00:00:00",
+    "updated": "2017-02-08T15:54:58.325Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013717970,
+    "vid": 8398867652,
+    "title": "Command Injection",
+    "description": "gm.compare fails to escape arguments properly",
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7982",
+      "https://cwe.mitre.org/data/definitions/78.html",
+      "https://github.com/aheckmann/gm/commit/5f5c77490aa84ed313405c88905eb4566135be31",
+      "https://nodesecurity.io/advisories/54",
+      "https://snyk.io/vuln/npm:gm:20151026",
+      "https://www.owasp.org/index.php/Command_Injection"
+    ],
+    "published": "2016-05-17T22:42:52.397Z",
+    "updated": "2017-02-08T14:39:22.981Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014167881,
+    "vid": 8398867646,
+    "title": "Content Injection",
+    "description": "Using attributes without quotes in a mustache template could result in content injection.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/hakimel/reveal.js/pull/1464",
+      "https://github.com/janl/mustache.js/commit/378bcca8a5cfe4058f294a3dbb78e8755e8e0da5",
+      "https://github.com/janl/mustache.js/pull/388",
+      "https://nodesecurity.io/advisories/62",
+      "https://snyk.io/vuln/npm:mustache:20151207"
+    ],
+    "published": "2016-05-23T21:29:16.026Z",
+    "updated": "2017-02-08T13:07:54.346Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013824646,
+    "vid": 8399958616,
+    "title": "Cross-Site Scripting (XSS)",
+    "description": "There are cases where un-escaped characters can result in a XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/wycats/handlebars.js/commit/83b8e846a3569bd366cf0b6bdc1e4604d1a2077e",
+      "https://github.com/wycats/handlebars.js/pull/1083",
+      "https://snyk.io/vuln/npm:handlebars:20151207"
+    ],
+    "published": "2016-08-03T16:33:15.08Z",
+    "updated": "2017-02-08T13:01:19.366Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399798780,
+    "vid": 8399958616,
+    "title": "Cross-Site Scripting (XSS)",
+    "description": "There are cases where un-escaped characters can result in a XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/wycats/handlebars.js/commit/83b8e846a3569bd366cf0b6bdc1e4604d1a2077e",
+      "https://github.com/wycats/handlebars.js/pull/1083",
+      "https://snyk.io/vuln/npm:handlebars:20151207"
+    ],
+    "published": "2016-08-03T16:33:15.08Z",
+    "updated": "2017-02-08T13:01:19.366Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399798776,
+    "vid": 8399958616,
+    "title": "Cross-Site Scripting (XSS)",
+    "description": "There are cases where un-escaped characters can result in a XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/wycats/handlebars.js/commit/83b8e846a3569bd366cf0b6bdc1e4604d1a2077e",
+      "https://github.com/wycats/handlebars.js/pull/1083",
+      "https://snyk.io/vuln/npm:handlebars:20151207"
+    ],
+    "published": "2016-08-03T16:33:15.08Z",
+    "updated": "2017-02-08T13:01:19.366Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013824523,
+    "vid": 8399958616,
+    "title": "Cross-Site Scripting (XSS)",
+    "description": "There are cases where un-escaped characters can result in a XSS vulnerability.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/wycats/handlebars.js/commit/83b8e846a3569bd366cf0b6bdc1e4604d1a2077e",
+      "https://github.com/wycats/handlebars.js/pull/1083",
+      "https://snyk.io/vuln/npm:handlebars:20151207"
+    ],
+    "published": "2016-08-03T16:33:15.08Z",
+    "updated": "2017-02-08T13:01:19.366Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014012191,
+    "vid": 8399946980,
+    "title": "Regular Expression Denial of Service",
+    "description": "The package is vulnerable to regular expression denial of service (ReDoS) attack, specifically in the email address validator.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://nodesecurity.io/advisories/53",
+      "https://snyk.io/vuln/npm:jshamcrest:20160105",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-07-22T21:10:06.628Z",
+    "updated": "2017-02-08T12:52:58.049Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013988294,
+    "vid": 8399946979,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "The package is vulnerable to a regular expression denial of service (ReDoS) attack.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://nodesecurity.io/advisories/52",
+      "https://snyk.io/vuln/npm:jadedown:20160105",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-07-22T21:05:32.584Z",
+    "updated": "2017-02-08T12:50:07.037Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014385727,
+    "vid": 8398925246,
+    "title": "Directory Traversal",
+    "description": "Restafary was not sufficiently protecting against path traversal.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/22.html",
+      "https://github.com/coderaiser/node-restafary/commit/63e4b13c802991bbff2d0af8bd15b0bce9ff971a",
+      "https://nodesecurity.io/advisories/89",
+      "https://snyk.io/vuln/npm:restafary:20160328"
+    ],
+    "published": "2016-05-17T22:21:33.831Z",
+    "updated": "2017-02-08T12:20:42.022Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013497174,
+    "vid": 8398925245,
+    "title": "Cross-Site Request Forgery",
+    "description": "Fixed a semi-critical CSFR vulnerabilty which allowed a attacker to use an authenticated user's session.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/352.html",
+      "https://github.com/silverwind/droppy/blob/fc023e8163e3a5830a73f055af308aeda7fb78cc/CHANGELOG.md#version-350---10122015",
+      "https://github.com/silverwind/droppy/commit/62ae2cbc87e0e4b7b61205b3d926e275c8f1accc",
+      "https://nodesecurity.io/advisories/91",
+      "https://snyk.io/vuln/npm:droppy:20160328"
+    ],
+    "published": "2016-05-17T22:20:31.002Z",
+    "updated": "2017-02-08T12:15:42.611Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014106540,
+    "vid": 8398941835,
+    "title": "Content & Code Injection (XSS)",
+    "description": "Using the HTML Coded Character Set, attackers can inject `javascript:` code snippets into the output.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://cwe.mitre.org/data/definitions/94.html",
+      "https://github.com/chjj/marked/pull/592",
+      "https://github.com/chjj/marked/pull/592/commits/2cff85979be8e7a026a9aca35542c470cf5da523",
+      "https://nodesecurity.io/advisories/101",
+      "https://snyk.io/vuln/npm:marked:20150520"
+    ],
+    "published": "2016-05-18T02:00:20.6Z",
+    "updated": "2017-02-08T11:40:46.309Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014180363,
+    "vid": 8399920114,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "Long values supplied by an attacker to the \"Accept-Language\" http header which nearly match the pattern being matched take a long time to process, during which the server is prevented from processing further requests.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://github.com/jshttp/negotiator/commit/26a05ec15cf7d1fa56000d66ebe9c9a1a62cb75c",
+      "https://nodesecurity.io/advisories/106",
+      "https://snyk.io/vuln/npm:negotiator:20160616",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-06-29T12:22:05.475Z",
+    "updated": "2017-02-08T11:34:03.519Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014437381,
+    "vid": 8399920116,
+    "title": "Potential Command Injection",
+    "description": "A variety of characters were not being correctly escaped by `shell-quote`, allowing for possible command injection attacks.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/78.html",
+      "https://github.com/substack/node-shell-quote/compare/1.6.0...1.6.1",
+      "https://nodesecurity.io/advisories/117",
+      "https://snyk.io/vuln/npm:shell-quote:20160621"
+    ],
+    "published": "2016-06-29T12:29:52.958Z",
+    "updated": "2017-02-08T11:30:12.922Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7013486248,
+    "vid": 333957,
+    "title": "[CVE-2008-6681]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+    "description": "Cross-site scripting (XSS) vulnerability in dijit.Editor in Dojo before 1.1 allows remote attackers to inject arbitrary web script or HTML via XML entities in a TEXTAREA element.",
+    "references": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=2008-6681",
+      "http://trac.dojotoolkit.org/ticket/2140",
+      "http://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2008-6681",
+      "http://www.dojotoolkit.org/book/dojo-1-1-release-notes",
+      "http://www.securityfocus.com/bid/34661",
+      "http://xforce.iss.net/xforce/xfdb/49883"
+    ],
+    "published": "2009-04-09T15:08:35.53Z",
+    "updated": "2017-02-08T11:23:14.177Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014002553,
+    "vid": 8399962426,
+    "title": "XSS in drag and drop node",
+    "description": "A cross site scripting vulnerability exists within the drag and drop functionality for modifying tree data. ",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/79.html",
+      "https://github.com/mbraak/jqTree/issues/437",
+      "https://nodesecurity.io/advisories/132",
+      "https://snyk.io/vuln/npm:jqtree:20160725"
+    ],
+    "published": "2016-08-06T08:14:38.74Z",
+    "updated": "2017-02-08T10:38:59.895Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399856060,
+    "vid": 8400188019,
+    "title": "Denial of Service (DOS)",
+    "description": "Large websocket messages (eg. 256mb) can exceed V8's maximum string size and cause the node process to crash.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://en.wikipedia.org/wiki/Denial-of-service_attack",
+      "https://github.com/uWebSockets/uWebSockets/commit/37deefd01f0875e133ea967122e3a5e421b8fcd9",
+      "https://nodesecurity.io/advisories/149",
+      "https://snyk.io/vuln/npm:uws:20161013"
+    ],
+    "published": "2016-10-19T11:31:33.393Z",
+    "updated": "2017-02-08T09:53:12.109Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014438637,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401844285,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8322880705,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014146991,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8399798800,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 8401879014,
+    "vid": 8400721503,
+    "title": "Regular Expression Denial of Service (ReDoS)",
+    "description": "> Affected versions of the package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks for any locale that has separate format and standalone options and format input can be controlled by the user.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:moment:20161019)\n",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/400.html",
+      "https://gist.github.com/grnd/50192ce22681848a7de812d95241b7fc",
+      "https://github.com/moment/moment/commit/663f33e333212b3800b63592cd8e237ac8fabdb9",
+      "https://snyk.io/vuln/npm:moment:20161019",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
+    ],
+    "published": "2016-11-02T15:40:09.281Z",
+    "updated": "2017-02-07T22:53:02.159Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7014605823,
+    "vid": 8400719655,
+    "title": "SQL Injection",
+    "description": "Any application that passes untrusted input to any of Waterline's like, contains, startsWith, and endsWith queries is vulnerable to SQL injection.",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/89.html",
+      "https://github.com/balderdashy/waterline-sequel/pull/66",
+      "https://github.com/balderdashy/waterline/issues/1219#issuecomment-157294530",
+      "https://nodesecurity.io/advisories/115",
+      "https://snyk.io/vuln/npm:waterline-sequel:20160804",
+      "https://www.owasp.org/index.php/SQL_Injection"
+    ],
+    "published": "2016-11-13T08:12:46.814Z",
+    "updated": "2017-02-07T22:49:31.52Z"
+  },
+  {
+    "pm": "npm",
+    "pid": 7012129764,
+    "vid": 8402235958,
+    "title": "Directory Traversal in URL path",
+    "description": "> Bitty has an exploitable directory traversal vulnerability via the URL path in GET requests. A request like /../../../../../../etc/passwd would leak sensitive files and data from the server.\n> \n> -- [snyk.io](https://snyk.io/vuln/npm:bitty:20161014)",
+    "references": [
+      "https://cwe.mitre.org/data/definitions/22.html",
+      "https://en.wikipedia.org/wiki/Directory_traversal_attack",
+      "https://github.com/caspervonb/bitty/issues/1",
+      "https://github.com/nodesecurity/nsp/issues/137",
+      "https://nodesecurity.io/advisories/150",
+      "https://snyk.io/vuln/npm:bitty:20161014"
+    ],
+    "published": "2016-12-08T00:17:43.948Z",
+    "updated": "2017-02-07T22:17:14.653Z"
   }
 ]

@@ -69,13 +69,14 @@ namespace CWEBot.Extract.OSSIndex
                 do
                 {
                     QueryResponse response = client.GetPackages(pm, from, till).Result;
-                    L.Information("Got {ps} package entries with {vuln} vulnerability entries for package manager {pm}.", response.packages.Count(p => p.PackageManager == pm),
-                        response.packages.Where(p => p.PackageManager == pm).Sum(p => p.Vulnerabilities.Count()), pm);
+                    L.Information("Got {ps} package entries with {vuln} vulnerability entries for package manager {pm}.", 
+                        response.packages.Where(p => p.PackageManager == pm).Select(p => p.Id).Distinct().Count(),
+                        response.packages.Where(p => p.PackageManager == pm).SelectMany(p => p.Vulnerabilities).Distinct().Count(), pm);
                     hasNext = !string.IsNullOrEmpty(response.NextUrl);
                     foreach (Package package in response.packages)
                     {
                         records.AddRange(
-                            package.Vulnerabilities.Select(v => new
+                            package.Vulnerabilities.Select(v => new 
                             ExtractedRecord
                             {
                                 PackageManager = pm,
@@ -99,7 +100,7 @@ namespace CWEBot.Extract.OSSIndex
                     {
                         hasNext = false;
                     }
-                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.VulnerabilityId).Count() > ProgramOptions.VulnerabilitiesLimit)
+                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.VulnerabilityId).Distinct().Count() > ProgramOptions.VulnerabilitiesLimit)
                     {
                         hasNext = false;
                     }
