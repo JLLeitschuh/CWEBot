@@ -24,7 +24,8 @@ namespace CWEBot.Extract.OSSIndex
         static Dictionary<string, string> AppConfig { get; set; }
         static ILogger L;
         static Options ProgramOptions { get; set; }
-        static FileInfo OutputFile { get; set; }
+        static FileInfo JsonOutputFile { get; set; }
+        static FileInfo TrainOutputFile { get; set; }
         static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -43,25 +44,44 @@ namespace CWEBot.Extract.OSSIndex
                 .WithParsed((Options o) => ProgramOptions = o);
             AppConfig = Configuration.ReadConfiguration();
             L.Information("Read {0} values from configuration: {AppConfig}", AppConfig.Count, AppConfig);
-            OutputFile = new FileInfo(ProgramOptions.OutputFile);
-            if (OutputFile.Exists)
+            JsonOutputFile = new FileInfo(ProgramOptions.OutputFile + ".json");
+            if (JsonOutputFile.Exists)
             {
                 if (!ProgramOptions.OverwriteOutputFile)
                 {
-                    L.Error("The output file {0} exists. Use the --overwrite flag to overwrite an existing file.", OutputFile.FullName);
+                    L.Error("The json output file {0} exists. Use the --overwrite flag to overwrite an existing file.", JsonOutputFile.FullName);
                     Exit(ExitResult.OUTPUT_FILE_EXISTS);
                 }
                 else
                 {
-                    L.Information("Existing file {0} will be overwritten.", OutputFile.FullName);
+                    L.Information("Existing file {0} will be overwritten.", JsonOutputFile.FullName);
                 }
             }
             else
             {
-                L.Information("Using output file {0}.", OutputFile.FullName);
+                L.Information("Using JSON output file {0}.", JsonOutputFile.FullName);
+            }
+            TrainOutputFile = new FileInfo(ProgramOptions.OutputFile + ".training.tsv");
+            if (TrainOutputFile.Exists)
+            {
+                if (!ProgramOptions.OverwriteOutputFile)
+                {
+                    L.Error("The training output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TrainOutputFile.FullName);
+                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                }
+                else
+                {
+                    L.Information("Existing file {0} will be overwritten.", TrainOutputFile.FullName);
+                }
+            }
+            else
+            {
+                L.Information("Using training output file {0}.", TrainOutputFile.FullName);
             }
             OSSIndexHttpClient client = new OSSIndexHttpClient("2.0");
             List<ExtractedRecord> records = new List<ExtractedRecord>();
+            VulnerablityComparator vc = new VulnerablityComparator();
+            ExtractedRecordComparator erc = new ExtractedRecordComparator();
             foreach (string pm in ProgramOptions.PackageManager)
             {
                 bool hasNext = false;
@@ -69,10 +89,15 @@ namespace CWEBot.Extract.OSSIndex
                 do
                 {
                     QueryResponse response = client.GetPackages(pm, from, till).Result;
-                    L.Information("Got {ps} package entries with {vuln} vulnerability entries for package manager {pm}.", 
+                    L.Information("Got {ps} package entries with {vuln} distinct vulnerability entries for package manager {pm}.", 
                         response.packages.Where(p => p.PackageManager == pm).Select(p => p.Id).Distinct().Count(),
-                        response.packages.Where(p => p.PackageManager == pm).SelectMany(p => p.Vulnerabilities).Distinct().Count(), pm);
+                        response.packages.Where(p => p.PackageManager == pm).SelectMany(p => p.Vulnerabilities).Distinct(vc).Count(), pm);
                     hasNext = !string.IsNullOrEmpty(response.NextUrl);
+                    var duplicates = response.packages.SelectMany(p => p.Vulnerabilities).GroupBy(v => v.Id)
+                        .Where(g => g.Count() > 1)
+                        .Select(y => y.Key)
+                        .ToList();
+                    L.Information("Got {0} duplicate vulnerabilities.", duplicates.Count);
                     foreach (Package package in response.packages)
                     {
                         records.AddRange(
@@ -81,6 +106,7 @@ namespace CWEBot.Extract.OSSIndex
                             {
                                 PackageManager = pm,
                                 PackageId = package.Id,
+                                PackageName = package.Name,
                                 VulnerabilityId = v.Id,
                                 Title = v.Title,
                                 Description = v.Description,
@@ -96,31 +122,29 @@ namespace CWEBot.Extract.OSSIndex
                         Uri n = new Uri(response.NextUrl);
                         till = Int64.Parse(n.Segments[7]);
                     }
-                    if (ProgramOptions.PackagesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.PackageId).Distinct().Count() > ProgramOptions.PackagesLimit)
+                    if (ProgramOptions.PackagesLimit > 0 && records.Distinct(erc).Where(r => r.PackageManager == pm).Select(r => r.PackageId).Distinct().Count() > ProgramOptions.PackagesLimit)
                     {
                         hasNext = false;
                     }
-                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Where(r => r.PackageManager == pm).Select(r => r.VulnerabilityId).Distinct().Count() > ProgramOptions.VulnerabilitiesLimit)
+                    if (ProgramOptions.VulnerabilitiesLimit > 0 && records.Distinct(erc).Where(r => r.PackageManager == pm).Count() > ProgramOptions.VulnerabilitiesLimit)
                     {
                         hasNext = false;
                     }
                 }
                 while (hasNext); 
             }
+            List<ExtractedRecord> extracted = records.Distinct(erc).ToList();
+            L.Information("Extracted {packages} packages with {vulnd} distinct vulnerabilities.", extracted.Select(r => r.PackageId).Distinct().Count(),
+                      extracted.Count());
             JsonSerializer serializer = new JsonSerializer();
             serializer.Formatting = Formatting.Indented;
-            using (StreamWriter sw = new StreamWriter(OutputFile.FullName, false, Encoding.UTF8))
+            using (StreamWriter sw = new StreamWriter(JsonOutputFile.FullName, false, Encoding.UTF8))
             {
-                serializer.Serialize(sw, records);
-                
+                serializer.Serialize(sw, extracted);
             }
-            L.Information("Extracted {packages} packages with {vulnt} total and {vulnd} distinct vulnerabilities to output file {f}", records.Select(r => r.PackageId).Distinct().Count(),
-                       records.Select(r => r.VulnerabilityId).Count(), records.Select(r => r.VulnerabilityId).Distinct().Count(), OutputFile.FullName);
-            var duplicates = records.GroupBy(x => new { pid = x.PackageId, vid = x.VulnerabilityId })
-              .Where(g => g.Count() > 1)
-              .Select(y => y.Key)
-              .ToList();
-            L.Information("Found {0} duplicates: {dup}.", duplicates.Count, duplicates);
+            L.Information("Wrote {extracted} records to {file}.", extracted.Count, JsonOutputFile.FullName);
+
+            
             return (int)ExitResult.SUCCESS;
         }
 

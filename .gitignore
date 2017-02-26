@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/20news-bydate-train-stanford-classifier.txt
+/20news-bydate-train-stanford-classifier.win.txt
+/o.json
+/o.json

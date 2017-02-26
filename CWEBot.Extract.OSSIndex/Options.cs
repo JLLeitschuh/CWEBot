@@ -9,7 +9,7 @@ namespace CWEBot.Extract.OSSIndex
 {
     class Options
     {
-        [Option('f', "file", Required = true, HelpText = "Output data file.")]
+        [Option('f', "file", Required = true, HelpText = "Output data file name. Files with .json and .txt extensions will be created with this extension.")]
         public string OutputFile { get; set; }
 
         [Option("overwrite", Required = false, Default = false, HelpText = "Ovewrite existing output file if it exists.")]
