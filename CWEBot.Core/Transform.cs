@@ -114,7 +114,7 @@ namespace CWEBot
                     {
                         foreach (Record r in TargetDatasetRecords)
                         {
-                            tarswe.WriteLine("{0}\t{1}\t{2}. {3}.", r.CWEId, r.VulnerabilityId, r.Title, r.Description);
+                            tarswe.WriteLine("{0}\t{1}\t{2}. {3}.", -1, r.VulnerabilityId, r.Title, r.Description);
                         }
                         tarswe.Flush();
                         L.Information("Wrote {0} vulnerability records to target data file {1}.", TargetDatasetRecords.Count, TargetOuputFile.FullName);
