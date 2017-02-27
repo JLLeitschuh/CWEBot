@@ -14,11 +14,12 @@ namespace CWEBot
     public class Transform<T>
     {
         #region Constructors
-        public Transform(FileInfo inputFile, FileInfo trainingOutputFile, FileInfo testOutputFile)
+        public Transform(FileInfo inputFile, FileInfo trainingOutputFile, FileInfo testOutputFile, FileInfo targetOutputFile)
         {
             InputFile = inputFile;
             TrainingOuputFile = trainingOutputFile;
             TestOuputFile = testOutputFile;
+            TargetOuputFile = targetOutputFile;
         }
         #endregion
 
@@ -26,8 +27,10 @@ namespace CWEBot
         public FileInfo InputFile { get; protected set; }
         public List<Record> ExtractedRecords { get; protected set; }
         public List<Record> ModelDatasetRecords { get; protected set; }
+        public List<Record> TargetDatasetRecords { get; protected set; }
         public FileInfo TrainingOuputFile { get; protected set; }
         public FileInfo TestOuputFile { get; protected set; }
+        public FileInfo TargetOuputFile { get; protected set; }
         public List<Record> TrainingRecords { get; protected set; } = new List<Record>();
         public List<Record> TestRecords { get; protected set; } = new List<Record>();
         
@@ -44,6 +47,7 @@ namespace CWEBot
                 ExtractedRecords = serializer.Deserialize<List<Record>>(reader);
             }
             ModelDatasetRecords = ExtractedRecords.Select(r => TransformRecordWithCWE(r)).Where(r => r.CWEId.HasValue).ToList();
+            TargetDatasetRecords = ExtractedRecords.Select(r => TransformRecordWithCWE(r)).Where(r => !r.CWEId.HasValue).ToList();
             foreach (Record r in ModelDatasetRecords)
             {
                 if (r.VulnerabilityId % 10 <= 8)
@@ -101,8 +105,32 @@ namespace CWEBot
                         Log.Error(e, "Error writing to test data file {0}.", TestOuputFile.FullName);
                         return false;
                     }
-                    return true;
                 }
+
+                using (FileStream tarfs = new FileStream(TargetOuputFile.FullName, FileMode.Create))
+                using (StreamWriter tarswe = new StreamWriter(tarfs))
+                {
+                    try
+                    {
+                        foreach (Record r in TargetDatasetRecords)
+                        {
+                            tarswe.WriteLine("{0}\t{1}\t{2}. {3}.", r.CWEId, r.VulnerabilityId, r.Title, r.Description);
+                        }
+                        tarswe.Flush();
+                        L.Information("Wrote {0} vulnerability records to target data file {1}.", TargetDatasetRecords.Count, TargetOuputFile.FullName);
+                    }
+                    catch (IOException ioe)
+                    {
+                        L.Error(ioe, "I/O Error writing to target data file {0}.", TargetOuputFile.FullName);
+                        return false;
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(e, "Error writing to target data file {0}.", TargetOuputFile.FullName);
+                        return false;
+                    }
+                }
+                return true;
             }
         }
 

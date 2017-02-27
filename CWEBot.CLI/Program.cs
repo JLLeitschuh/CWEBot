@@ -29,6 +29,7 @@ namespace CWEBot.CLI
         static FileInfo InputFile { get; set; }
         static FileInfo TrainingOutputFile { get; set; }
         static FileInfo TestOutputFile { get; set; }
+        static FileInfo TargetOutputFile { get; set; }
         static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -67,7 +68,7 @@ namespace CWEBot.CLI
                 }
                 else
                 {
-                    L.Information("Existing file {0} will be overwritten.", TrainingOutputFile.FullName);
+                    L.Information("Existing training output file {0} will be overwritten.", TrainingOutputFile.FullName);
                 }
             }
 
@@ -81,11 +82,25 @@ namespace CWEBot.CLI
                 }
                 else
                 {
-                    L.Information("Existing file {0} will be overwritten.", TestOutputFile.FullName);
+                    L.Information("Existing test output file {0} will be overwritten.", TestOutputFile.FullName);
                 }
             }
 
-            Transform<IRecord> transform = new Transform<IRecord>(InputFile, TrainingOutputFile, TestOutputFile);
+            TargetOutputFile = new FileInfo(TransformOptions.OutputFile + ".target.tsv");
+            if (TargetOutputFile.Exists)
+            {
+                if (!TransformOptions.OverwriteOutputFile)
+                {
+                    L.Error("The target output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TargetOutputFile.FullName);
+                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                }
+                else
+                {
+                    L.Information("Existing target dataset file {0} will be overwritten.", TargetOutputFile.FullName);
+                }
+            }
+
+            Transform<IRecord> transform = new Transform<IRecord>(InputFile, TrainingOutputFile, TestOutputFile, TargetOutputFile);
             if (!transform.CreateModelDataset())
             {
                 return ExitWithCode(ExitResult.ERROR_TRANSFORMING_DATA);
