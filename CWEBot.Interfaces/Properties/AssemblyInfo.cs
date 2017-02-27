@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CWEBot.Core")]
-[assembly: AssemblyDescription("CWEBot : Automated CWE Classification of Vulnerabilities")]
+[assembly: AssemblyTitle("CWEBot.Interfaces")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Vor Security")]
-[assembly: AssemblyProduct("CWEBot")]
-[assembly: AssemblyCopyright("Copyright ©  2017 Vor Security")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("CWEBot.Interfaces")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("09913cd8-ba6c-432a-9005-cd5540a89c3c")]
+[assembly: Guid("aad84431-919b-4b7c-9544-1e69b0b1f7d7")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.1.0")]
-[assembly: AssemblyFileVersion("0.0.1.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

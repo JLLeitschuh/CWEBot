@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21AC5A8B-A7FE-4A48-861B-78A0F38D1343}</ProjectGuid>
+    <ProjectGuid>{A692AF2E-9651-4854-85A7-130220573340}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CWEBot.Extract.OSSIndex</RootNamespace>
-    <AssemblyName>Extract</AssemblyName>
+    <RootNamespace>CWEBot.CLI</RootNamespace>
+    <AssemblyName>CWEBot</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,10 +37,6 @@
       <HintPath>..\packages\CommandLineParser.2.1.1-beta\lib\net45\CommandLine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.4.0\lib\net46\Serilog.dll</HintPath>
       <Private>True</Private>
@@ -67,15 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="Models\ExtractedRecord.cs" />
-    <Compile Include="Models\Package.cs" />
-    <Compile Include="Models\Vulnerability.cs" />
-    <Compile Include="Models\QueryResponse.cs" />
     <Compile Include="Options.cs" />
-    <Compile Include="OSSIndexHttpClient.cs" />
-    <Compile Include="OSSIndexHttpException.cs" />
-    <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CWEBot.Core\CWEBot.Core.csproj">
+      <Project>{09913cd8-ba6c-432a-9005-cd5540a89c3c}</Project>
+      <Name>CWEBot.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CWEBot.Interfaces\CWEBot.Interfaces.csproj">
       <Project>{aad84431-919b-4b7c-9544-1e69b0b1f7d7}</Project>
       <Name>CWEBot.Interfaces</Name>

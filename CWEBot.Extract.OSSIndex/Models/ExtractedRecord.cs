@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
+using CWEBot.Interfaces;
 namespace CWEBot.Extract.OSSIndex
 {
-    public class ExtractedRecord
+    public class ExtractedRecord : IRecord
     {
         #region Properties
         [JsonProperty("pm")]
@@ -19,21 +20,19 @@ namespace CWEBot.Extract.OSSIndex
 
         [JsonProperty("name")]
         public string PackageName { get; set; }
-
-        [JsonProperty("vid")]
+        
         public long VulnerabilityId { get; set; }
 
-        [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonProperty("description")]
         public string Description { get; set; }
 
-        [JsonProperty("references")]
         public string[] References { get; set; }
 
-        [JsonProperty("published")]
         public DateTime Published { get; set; }
+
+        [JsonIgnore]
+        public int? CWEId { get; set; }
 
         [JsonProperty("updated")]
         public DateTime Updated { get; set; }

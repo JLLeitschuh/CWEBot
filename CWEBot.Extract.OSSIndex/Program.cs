@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using CommandLine;
@@ -18,14 +19,14 @@ namespace CWEBot.Extract.OSSIndex
         {
             SUCCESS = 0,
             INVALID_OPTIONS = 1,
-            OUTPUT_FILE_EXISTS = 2
+            OUTPUT_FILE_EXISTS = 2,
+            ERROR_WRITING_OUTPUT_FILE = 3
         }
         
         static Dictionary<string, string> AppConfig { get; set; }
         static ILogger L;
         static Options ProgramOptions { get; set; }
         static FileInfo JsonOutputFile { get; set; }
-        static FileInfo TrainOutputFile { get; set; }
         static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -61,23 +62,6 @@ namespace CWEBot.Extract.OSSIndex
             {
                 L.Information("Using JSON output file {0}.", JsonOutputFile.FullName);
             }
-            TrainOutputFile = new FileInfo(ProgramOptions.OutputFile + ".training.tsv");
-            if (TrainOutputFile.Exists)
-            {
-                if (!ProgramOptions.OverwriteOutputFile)
-                {
-                    L.Error("The training output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TrainOutputFile.FullName);
-                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
-                }
-                else
-                {
-                    L.Information("Existing file {0} will be overwritten.", TrainOutputFile.FullName);
-                }
-            }
-            else
-            {
-                L.Information("Using training output file {0}.", TrainOutputFile.FullName);
-            }
             OSSIndexHttpClient client = new OSSIndexHttpClient("2.0");
             List<ExtractedRecord> records = new List<ExtractedRecord>();
             VulnerablityComparator vc = new VulnerablityComparator();
@@ -108,8 +92,8 @@ namespace CWEBot.Extract.OSSIndex
                                 PackageId = package.Id,
                                 PackageName = package.Name,
                                 VulnerabilityId = v.Id,
-                                Title = v.Title,
-                                Description = v.Description,
+                                Title = FilterNonText(v.Title),
+                                Description = FilterNonText(v.Description), //strip out any URLs
                                 References = v.References,
                                 Updated = v.Updated.HasValue ? v.Updated.Value : DateTime.MinValue,
                                 Published = v.Published.HasValue ? v.Published.Value : DateTime.MinValue
@@ -143,8 +127,6 @@ namespace CWEBot.Extract.OSSIndex
                 serializer.Serialize(sw, extracted);
             }
             L.Information("Wrote {extracted} records to {file}.", extracted.Count, JsonOutputFile.FullName);
-
-            
             return (int)ExitResult.SUCCESS;
         }
 
@@ -158,6 +140,15 @@ namespace CWEBot.Extract.OSSIndex
         {
             Log.CloseAndFlush();
             Environment.Exit((int)result);
+        }
+
+        static string FilterNonText(string t)
+        {
+            string text = Regex.Replace(t, @"[\u000A\u000B\u000C\u000D\u2028\u2029\u0085]+", String.Empty); //filter out line terminators
+            text = Regex.Replace(text, @"\s+", " "); //compress multiple white space into 1
+            text = Regex.Replace(text, @"http[^\s]+", ""); //filter out urls
+            text = Regex.Replace(text, @"\[^\s+\]", ""); //filter out [text]
+            return new string(text.Where(c => char.IsLetterOrDigit(c) || c == ' ' || c == '-').ToArray()); //filter out anything non-alphanumeric
         }
     }
 }

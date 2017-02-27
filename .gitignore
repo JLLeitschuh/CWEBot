@@ -244,3 +244,6 @@ ModelManifest.xml
 /20news-bydate-train-stanford-classifier.win.txt
 /o.json
 /o.json
+/vulns.training.tsv
+*.tsv
+*.json

@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CWEBot.Core")]
-[assembly: AssemblyDescription("CWEBot : Automated CWE Classification of Vulnerabilities")]
+[assembly: AssemblyTitle("CWEBot.CLI")]
+[assembly: AssemblyDescription("CWEBot Command Line Interface")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Vor Security")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CWEBot")]
 [assembly: AssemblyCopyright("Copyright ©  2017 Vor Security")]
 [assembly: AssemblyTrademark("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("09913cd8-ba6c-432a-9005-cd5540a89c3c")]
+[assembly: Guid("a692af2e-9651-4854-85a7-130220573340")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,3 +1,3 @@
 @echo off
-.\CWEBot.Extract.OSSIndex\bin\Debug\extract.exe %*
+.\CWEBot.Extract.OSSIndex\bin\Debug\Extract.exe %*
 :end
