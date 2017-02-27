@@ -24,9 +24,6 @@ namespace CWEBot.Extract.OSSIndex
 
         [Option('p', "packages", Required = false, HelpText = "Limit the number of packages extracted.", Default = 0)]
         public int PackagesLimit { get; set; }
-
-        [Option('t', "train", Required = true, HelpText = "Create a training set with this number of vulnerabilities.")]
-        public int Train { get; set; }
     }
 
 }
