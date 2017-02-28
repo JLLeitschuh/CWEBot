@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtractStage.cs" />
     <Compile Include="Transform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\CWEBot.Extract.OSSIndex\CWEBot.Extract.OSSIndex.csproj">
       <Project>{21ac5a8b-a7fe-4a48-861b-78a0f38d1343}</Project>
       <Name>CWEBot.Extract.OSSIndex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWEBot.Extract\CWEBot.Extract.csproj">
+      <Project>{0ccc097f-555f-43fd-8a90-8443f373176e}</Project>
+      <Name>CWEBot.Extract</Name>
     </ProjectReference>
     <ProjectReference Include="..\CWEBot.Interfaces\CWEBot.Interfaces.csproj">
       <Project>{aad84431-919b-4b7c-9544-1e69b0b1f7d7}</Project>

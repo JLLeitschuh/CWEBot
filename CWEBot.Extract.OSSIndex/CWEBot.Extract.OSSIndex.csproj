@@ -73,6 +73,7 @@
     <Compile Include="Models\Vulnerability.cs" />
     <Compile Include="Models\QueryResponse.cs" />
     <Compile Include="Options.cs" />
+    <Compile Include="OSSIndexExtractor.cs" />
     <Compile Include="OSSIndexHttpClient.cs" />
     <Compile Include="OSSIndexHttpException.cs" />
     <Compile Include="Output.cs" />

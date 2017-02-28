@@ -1,0 +1,1 @@
+﻿xsd nvd-cve-feed_2.0.xsd cce_0.1.xsd cve_0.1.1.xsd scap-core_0.1.xsd patch_0.1.xsd vulnerability_0.4.xsd cpe-language_2.1.xsd  cvss-v2_0.2.xsd /classes /order /f /n:CWEBot.Models

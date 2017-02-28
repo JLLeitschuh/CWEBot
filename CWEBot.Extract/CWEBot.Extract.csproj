@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AAD84431-919B-4B7C-9544-1E69B0B1F7D7}</ProjectGuid>
+    <ProjectGuid>{0CCC097F-555F-43FD-8A90-8443F373176E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CWEBot.Interfaces</RootNamespace>
-    <AssemblyName>CWEBot.Interfaces</AssemblyName>
+    <RootNamespace>CWEBot.Extract</RootNamespace>
+    <AssemblyName>CWEBot.Extract</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,15 +48,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extractor.cs" />
-    <Compile Include="IExtractor.cs" />
-    <Compile Include="IProcessor.cs" />
-    <Compile Include="IRecord.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="NVD\NVDCVEFeed.cs" />
+    <Compile Include="NVD\NVDXMLExtractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NVD\schemas\gen-nvecvefeed-class.cmd" />
+    <None Include="NVD\schemas\cce_0.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\cpe-language_2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\cve_0.1.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\cvss-v2_0.2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\cvss-v2_0.2.xsd_" />
+    <None Include="NVD\schemas\nvd-cve-feed_2.0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\patch_0.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\scap-core_0.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\vulnerability_0.4.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\vulnerability_0.4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CWEBot.Interfaces\CWEBot.Interfaces.csproj">
+      <Project>{aad84431-919b-4b7c-9544-1e69b0b1f7d7}</Project>
+      <Name>CWEBot.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

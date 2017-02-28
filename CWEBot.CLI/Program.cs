@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,19 @@ namespace CWEBot.CLI
         {
             SUCCESS = 0,
             INVALID_OPTIONS = 1,
-            INPUT_FILE = 2,
+            INPUT_FILE_ERROR = 2,
             OUTPUT_FILE_EXISTS = 3,
             ERROR_TRANSFORMING_DATA = 4
         }
 
         static Dictionary<string, string> AppConfig { get; set; }
         static ILogger L;
-        static Options ProgramOptions { get; set; }
+        static List<string> Extractors { get; set; } = new List<string> { "nvd", "ossi" };
+        static ExtractOptions ExtractOptions { get; set; }
+        static Extractor Extractor { get; set; }
         static TransformOptions TransformOptions { get; set; }
         static FileInfo InputFile { get; set; }
+        static FileInfo ExtractOutputFile { get; set; }
         static FileInfo TrainingOutputFile { get; set; }
         static FileInfo TestOutputFile { get; set; }
         static FileInfo TargetOutputFile { get; set; }
@@ -38,80 +42,126 @@ namespace CWEBot.CLI
                 .WriteTo.RollingFile(Path.Combine("logs", "CWEBot") + "-{Date}.log")
                 .CreateLogger();
             L = Log.ForContext<Program>();
-            var result = Parser.Default.ParseArguments<Options, TransformOptions>(args)
+            var result = Parser.Default.ParseArguments<ExtractOptions, TransformOptions>(args)
             .WithNotParsed((IEnumerable<Error> errors) =>
             {
-                Log.CloseAndFlush();
-                Environment.Exit((int)ExitResult.INVALID_OPTIONS);
+                Exit(ExitResult.INVALID_OPTIONS);
 
             })
-            .WithParsed((Options o) => ProgramOptions = o)
-            .WithParsed((TransformOptions o) => TransformOptions = o);
-            if (!File.Exists(TransformOptions.InputFile))
+            .WithParsed((ExtractOptions o) =>
             {
-                L.Error("The input file {0} does not exist.", TransformOptions.InputFile);
-                Exit(ExitResult.INPUT_FILE);
-            }
-            else
-            {
-                InputFile = new FileInfo(TransformOptions.InputFile);
-                L.Information("Using input file {file}.", TransformOptions.InputFile);
-            }
-
-            TrainingOutputFile = new FileInfo(TransformOptions.OutputFile + ".training.tsv");
-            if (TrainingOutputFile.Exists)
-            {
-                if (!TransformOptions.OverwriteOutputFile)
+                if (o.ExtractParameters.Count() > 0 && Extractors.Contains(o.ExtractParameters.First()))
                 {
-                    L.Error("The training output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TrainingOutputFile.FullName);
-                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    ExtractOptions = o;
+                    Extract();
+                    Exit(ExitResult.SUCCESS);
                 }
                 else
                 {
-                    L.Information("Existing training output file {0} will be overwritten.", TrainingOutputFile.FullName);
+                    L.Error("The current extractors are: {extractors}.", Extractors);
+                    Exit(ExitResult.INVALID_OPTIONS);
                 }
-            }
-
-            TestOutputFile = new FileInfo(TransformOptions.OutputFile + ".test.tsv");
-            if (TrainingOutputFile.Exists)
+                
+            })
+            .WithParsed((TransformOptions o) =>
             {
-                if (!TransformOptions.OverwriteOutputFile)
+                TransformOptions = o;
+                if (!File.Exists(TransformOptions.InputFile))
                 {
-                    L.Error("The test output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TestOutputFile.FullName);
-                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    L.Error("The input file {0} for transform does not exist.", TransformOptions.InputFile);
+                    Exit(ExitResult.INPUT_FILE_ERROR);
                 }
                 else
                 {
-                    L.Information("Existing test output file {0} will be overwritten.", TestOutputFile.FullName);
+                    InputFile = new FileInfo(TransformOptions.InputFile);
+                    L.Information("Using input file {file} or transform.", TransformOptions.InputFile);
                 }
-            }
 
-            TargetOutputFile = new FileInfo(TransformOptions.OutputFile + ".target.tsv");
-            if (TargetOutputFile.Exists)
-            {
-                if (!TransformOptions.OverwriteOutputFile)
+                TrainingOutputFile = new FileInfo(TransformOptions.OutputFile + ".training.tsv");
+                if (TrainingOutputFile.Exists)
                 {
-                    L.Error("The target output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TargetOutputFile.FullName);
-                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    if (!TransformOptions.OverwriteOutputFile)
+                    {
+                        L.Error("The training output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TrainingOutputFile.FullName);
+                        Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    }
+                    else
+                    {
+                        L.Information("Existing training output file {0} will be overwritten.", TrainingOutputFile.FullName);
+                    }
+                }
+
+                TestOutputFile = new FileInfo(TransformOptions.OutputFile + ".test.tsv");
+                if (TrainingOutputFile.Exists)
+                {
+                    if (!TransformOptions.OverwriteOutputFile)
+                    {
+                        L.Error("The test output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TestOutputFile.FullName);
+                        Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    }
+                    else
+                    {
+                        L.Information("Existing test output file {0} will be overwritten.", TestOutputFile.FullName);
+                    }
+                }
+
+                TargetOutputFile = new FileInfo(TransformOptions.OutputFile + ".target.tsv");
+                if (TargetOutputFile.Exists)
+                {
+                    if (!TransformOptions.OverwriteOutputFile)
+                    {
+                        L.Error("The target output file {0} exists. Use the --overwrite flag to overwrite an existing file.", TargetOutputFile.FullName);
+                        Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                    }
+                    else
+                    {
+                        L.Information("Existing target dataset file {0} will be overwritten.", TargetOutputFile.FullName);
+                    }
+                }
+
+                TransformStage transform = new TransformStage(InputFile, TrainingOutputFile, TestOutputFile, TargetOutputFile);
+                if (!transform.CreateModelDataset())
+                {
+                    Exit(ExitResult.ERROR_TRANSFORMING_DATA);
                 }
                 else
                 {
-                    L.Information("Existing target dataset file {0} will be overwritten.", TargetOutputFile.FullName);
+                    Exit(ExitResult.SUCCESS);
                 }
-            }
-
-            Transform<IRecord> transform = new Transform<IRecord>(InputFile, TrainingOutputFile, TestOutputFile, TargetOutputFile);
-            if (!transform.CreateModelDataset())
-            {
-                return ExitWithCode(ExitResult.ERROR_TRANSFORMING_DATA);
-            }
-            else
-            {
-                Log.CloseAndFlush();
-                return (int)ExitResult.SUCCESS;
-            }
+            });
+            return 0;
+          
         }
 
+        static bool Extract()
+        {
+            ExtractOutputFile = new FileInfo(ExtractOptions.OutputFile);
+            if (ExtractOutputFile.Exists)
+            {
+                if (!(ExtractOptions.OverwriteOutputFile || ExtractOptions.AppendToOutputFile))
+                {
+                    L.Error("The json output file {0} exists. Use the --overwrite flag to overwrite an existing file or --append to append extracted records to the existing file.", ExtractOutputFile.FullName);
+                    Exit(ExitResult.OUTPUT_FILE_EXISTS);
+                }
+                else if (ExtractOptions.OverwriteOutputFile)
+                {
+                    L.Information("Existing file {0} will be overwritten.", ExtractOutputFile.FullName);
+                }
+                else
+                {
+                    L.Information("Existing file {0} will be appended to.", ExtractOutputFile.FullName);
+                }
+            }
+            else
+            {
+                L.Information("Using JSON output file {0}.", ExtractOutputFile.FullName);
+            }
+            ExtractStage e = new ExtractStage(ExtractOptions.ExtractParameters.First(), ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
+                L, ExtractOptions.ExtractParameters.ToList());
+            e.Run(ExtractOptions.VulnerabilitiesLimit, null);
+            return true;
+
+        }
         static void Exit(ExitResult result)
         {
             Log.CloseAndFlush();

@@ -8,6 +8,7 @@ namespace CWEBot.Interfaces
 {
     public interface IExtractor
     {
-        string Extract(string file, bool overwrite, int packages, int vulnerabilities, Dictionary<string, string> options);
+        int Extract(int vulnerabilitiesLimit, Dictionary<string, string> options);
+        bool Save();
     }
 }

@@ -11,10 +11,10 @@ using Newtonsoft.Json;
 using CWEBot.Interfaces;
 namespace CWEBot
 {
-    public class Transform<T>
+    public class TransformStage
     {
         #region Constructors
-        public Transform(FileInfo inputFile, FileInfo trainingOutputFile, FileInfo testOutputFile, FileInfo targetOutputFile)
+        public TransformStage(FileInfo inputFile, FileInfo trainingOutputFile, FileInfo testOutputFile, FileInfo targetOutputFile)
         {
             InputFile = inputFile;
             TrainingOuputFile = trainingOutputFile;
@@ -24,6 +24,7 @@ namespace CWEBot
         #endregion
 
         #region Properties
+        ILogger L { get; } = Log.ForContext<TransformStage>();
         public FileInfo InputFile { get; protected set; }
         public List<Record> ExtractedRecords { get; protected set; }
         public List<Record> ModelDatasetRecords { get; protected set; }
@@ -33,8 +34,6 @@ namespace CWEBot
         public FileInfo TargetOuputFile { get; protected set; }
         public List<Record> TrainingRecords { get; protected set; } = new List<Record>();
         public List<Record> TestRecords { get; protected set; } = new List<Record>();
-        
-        ILogger L { get; } = Log.ForContext<Transform<T>>();
         #endregion
 
         #region Methods
@@ -50,7 +49,7 @@ namespace CWEBot
             TargetDatasetRecords = ExtractedRecords.Select(r => TransformRecordWithCWE(r)).Where(r => !r.CWEId.HasValue).ToList();
             foreach (Record r in ModelDatasetRecords)
             {
-                if (r.VulnerabilityId % 10 <= 8)
+                if (r.VulnerabilityId % 10 < 8)
                 {
                     TestRecords.Add(r);
                 }
