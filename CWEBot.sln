@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
 		build.sh = build.sh
-		Classify.cmd = Classify.cmd
 		cwb.cmd = cwb.cmd
 		cwb.sh = cwb.sh
 		extract-ossi = extract-ossi
 		extract-ossi.cmd = extract-ossi.cmd
+		StanfordClassify.cmd = StanfordClassify.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWEBot.CLI", "CWEBot.CLI\CWEBot.CLI.csproj", "{A692AF2E-9651-4854-85A7-130220573340}"

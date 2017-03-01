@@ -140,7 +140,7 @@ namespace CWEBot.CLI
             {
                 if (!(ExtractOptions.OverwriteOutputFile || ExtractOptions.AppendToOutputFile))
                 {
-                    L.Error("The json output file {0} exists. Use the --overwrite flag to overwrite an existing file or --append to append extracted records to the existing file.", ExtractOutputFile.FullName);
+                    L.Error("The JSON output file {0} exists. Use the --overwrite flag to overwrite an existing file or --append to append extracted records to the existing file.", ExtractOutputFile.FullName);
                     Exit(ExitResult.OUTPUT_FILE_EXISTS);
                 }
                 else if (ExtractOptions.OverwriteOutputFile)
@@ -156,10 +156,16 @@ namespace CWEBot.CLI
             {
                 L.Information("Using JSON output file {0}.", ExtractOutputFile.FullName);
             }
-            ExtractStage e = new ExtractStage(ExtractOptions.ExtractParameters.First(), ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
-                L, ExtractOptions.ExtractParameters.ToList());
-            e.Run(ExtractOptions.VulnerabilitiesLimit, null);
-            return true;
+            try
+            {
+                ExtractStage e = new ExtractStage(ExtractOptions.ExtractParameters.First(), ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
+                    L, ExtractOptions.ExtractParameters.ToList());
+                return e.Run(ExtractOptions.VulnerabilitiesLimit, null);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
         }
         static void Exit(ExitResult result)

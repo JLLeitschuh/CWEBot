@@ -39,7 +39,15 @@ namespace CWEBot
                 gzs.CopyTo(ms);
                 L.Information("Read {bytes} bytes from decompressed memory stream.", ms.Length);
                 ms.Seek(0, SeekOrigin.Begin);
-                NVDFeed = (nvd) serializer.Deserialize(ms);
+                try
+                {
+                    NVDFeed = (nvd)serializer.Deserialize(ms);
+                }
+                catch (Exception e)
+                {
+                    L.Error(e, "Error deserializing {file} using NVD 2.0 schema.", InputFile.FullName);
+                }
+                
                 
             }
             if (NVDFeed == null || NVDFeed.entry == null)

@@ -246,4 +246,5 @@ ModelManifest.xml
 /o.json
 /vulns.training.tsv
 *.tsv
-*.json
+/*.json
+/*.tsv

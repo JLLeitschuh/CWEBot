@@ -66,7 +66,7 @@ namespace CWEBot
                 {
                     foreach (Record r in TrainingRecords)
                     {
-                        trswe.WriteLine("{0}\t{1}\t{2}. {3}.", r.CWEId, r.VulnerabilityId, r.Title, r.Description);
+                        trswe.WriteLine("{0}\t{1} {2}", r.CWEId, r.Title, r.Description);
                     }
                     trswe.Flush();
                     L.Information("Wrote {0} vulnerability records to training data file {1}.", TrainingRecords.Count, TrainingOuputFile.FullName);
@@ -89,7 +89,7 @@ namespace CWEBot
                     {
                         foreach (Record r in TestRecords)
                         {
-                            teswe.WriteLine("{0}\t{1}\t{2}. {3}.", r.CWEId, r.VulnerabilityId, r.Title, r.Description);
+                            teswe.WriteLine("{0}\t{1} {2}\t{3}", r.CWEId, r.Title, r.Description, r.VulnerabilityId);
                         }
                         teswe.Flush();
                         L.Information("Wrote {0} vulnerability records to test data file {1}.", TestRecords.Count, TestOuputFile.FullName);
@@ -113,7 +113,7 @@ namespace CWEBot
                     {
                         foreach (Record r in TargetDatasetRecords)
                         {
-                            tarswe.WriteLine("{0}\t{1}\t{2}. {3}.", -1, r.VulnerabilityId, r.Title, r.Description);
+                            tarswe.WriteLine("{0}\t{1} {2}\t{3}", string.Empty, r.Title, r.Description, r.VulnerabilityId);
                         }
                         tarswe.Flush();
                         L.Information("Wrote {0} vulnerability records to target data file {1}.", TargetDatasetRecords.Count, TargetOuputFile.FullName);
@@ -135,7 +135,7 @@ namespace CWEBot
 
         public Record TransformRecordWithCWE(Record r)
         {
-            if (r.References != null && r.References.Count() > 0)
+            if (!r.CWEId.HasValue && r.References != null && r.References.Count() > 0)
             {
                 foreach( string reference in r.References)
                 {
