@@ -51,9 +51,14 @@
     <Compile Include="Class1.cs" />
     <Compile Include="NVD\NVDCVEFeed.cs" />
     <Compile Include="NVD\NVDXMLExtractor.cs" />
+    <Compile Include="NVD\CWECatalog542.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NVD\schemas\cwe_schema_v5.4.2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NVD\schemas\gen-cwe-classes.cmd" />
     <None Include="NVD\schemas\gen-nvecvefeed-class.cmd" />
     <None Include="NVD\schemas\cce_0.1.xsd">
       <SubType>Designer</SubType>

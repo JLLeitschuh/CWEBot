@@ -34,6 +34,7 @@ namespace CWEBot.CLI
         static FileInfo TrainingOutputFile { get; set; }
         static FileInfo TestOutputFile { get; set; }
         static FileInfo TargetOutputFile { get; set; }
+
         static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -50,7 +51,7 @@ namespace CWEBot.CLI
             })
             .WithParsed((ExtractOptions o) =>
             {
-                if (o.ExtractParameters.Count() > 0 && Extractors.Contains(o.ExtractParameters.First()))
+                if (Extractors.Contains(o.Extractor))
                 {
                     ExtractOptions = o;
                     Extract();
@@ -118,8 +119,20 @@ namespace CWEBot.CLI
                         L.Information("Existing target dataset file {0} will be overwritten.", TargetOutputFile.FullName);
                     }
                 }
-
-                TransformStage transform = new TransformStage(InputFile, TrainingOutputFile, TestOutputFile, TargetOutputFile);
+                Dictionary<string, object> options = new Dictionary<string, object>();
+                if (TransformOptions.WithDescription)
+                {
+                    options.Add("WithDescription", true);
+                }
+                if (TransformOptions.VulnerabilitiesLimit > 0)
+                {
+                    options.Add("VulnerabilitiesLimit", TransformOptions.VulnerabilitiesLimit);
+                }
+                if (TransformOptions.Split != 8)
+                {
+                    options.Add("Split", TransformOptions.Split);
+                }
+                TransformStage transform = new TransformStage(InputFile, TrainingOutputFile, TestOutputFile, TargetOutputFile, options.Count == 0 ? null : options);
                 if (!transform.CreateModelDataset())
                 {
                     Exit(ExitResult.ERROR_TRANSFORMING_DATA);
@@ -135,7 +148,7 @@ namespace CWEBot.CLI
 
         static bool Extract()
         {
-            ExtractOutputFile = new FileInfo(ExtractOptions.OutputFile);
+            ExtractOutputFile = new FileInfo(ExtractOptions.OutputFile + (ExtractOptions.CompressOutputFile ? ".json.gz" : ".json"));
             if (ExtractOutputFile.Exists)
             {
                 if (!(ExtractOptions.OverwriteOutputFile || ExtractOptions.AppendToOutputFile))
@@ -158,8 +171,14 @@ namespace CWEBot.CLI
             }
             try
             {
-                ExtractStage e = new ExtractStage(ExtractOptions.ExtractParameters.First(), ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
-                    L, ExtractOptions.ExtractParameters.ToList());
+                List<string> parameters = ExtractOptions.ExtractParameters.ToList();
+                parameters.AddRange(ExtractOptions.ExtractParameters);
+                if (ExtractOptions.CompressOutputFile)
+                {
+                    parameters.Add("CompressOutputFile");
+                }
+                ExtractStage e = new ExtractStage(ExtractOptions.Extractor, ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
+                    L, parameters);
                 return e.Run(ExtractOptions.VulnerabilitiesLimit, null);
             }
             catch (Exception)

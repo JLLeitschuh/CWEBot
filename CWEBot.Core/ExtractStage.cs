@@ -20,17 +20,22 @@ namespace CWEBot
             L = logger.ForContext<ExtractStage>();
             if (extractor == "nvd")
             {
-                if (parameters.Count < 2)
+                if (parameters.Count < 1)
                 {
-                    L.Error("At least 2 parameters are needed for the NVD extractor.");
-                    throw new ArgumentException("At least 2 parameters are needed for the NVD extractor.", "parameters");
+                    L.Error("At least 1 parameter is needed for the NVD extractor: the input file.");
+                    throw new ArgumentException("At least 1 parameter is needed for the NVD extractor: the input file.", "parameters");
                 }
-                else if (!File.Exists(parameters[1]))
+                else if (!File.Exists(parameters[0]))
                 {
-                    L.Error("The input file parameter {file} for the NVD extractor does not exist.", parameters[1]);
+                    L.Error("The input file parameter {file} for the NVD extractor does not exist.", parameters[0]);
                     throw new ArgumentException("The input file parameter for the NVD extractor does not exist.", "parameters");
                 }
-                else Extractor = new NVDXMLExtractor(outputFile, overwrite, append, L, new Dictionary<string, string> { { "InputFile", parameters[1] } });
+                Dictionary<string, object> options = new Dictionary<string, object> { { "InputFile", parameters[0] } };
+                if (parameters.Contains("CompressOutputFile"))
+                {
+                    options.Add("CompressOutputFile", true);
+                }
+                Extractor = new NVDXMLExtractor(outputFile, overwrite, append, L, options);
             }
         }
 

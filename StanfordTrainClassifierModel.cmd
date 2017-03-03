@@ -3,12 +3,17 @@
 set ERROR_CODE=0
 
 if not "%1" == "" goto OkARG1
-echo Error: Usage is Stanford-Classify trainFile testFile 
+echo Error: Usage is StanfordTrainClassifierModel trainFile testFile modelFile 
 goto error
 
 :OkARG1
-if not "%2" == "" goto OkARGS
-echo Error: Usage is Stanford-Classify trainFile testFile 
+if not "%2" == "" goto OkARG2
+echo Error: Usage is StanfordTrainClassifierModel trainFile testFile modelFile
+goto error
+
+:OkARG2
+if not "%3" == "" goto OkARGS
+echo Error: Usage is StanfordTrainClassifierModel trainFile testFile modelFile
 goto error
 
 :OkARGS
@@ -17,11 +22,19 @@ echo The training file %1 could not be found. >&2
 goto error
 
 :OkTRAINFILE
-if exist "%2" goto OkTESTFILE
-echo The test file %2 could not be found. >&2
+set TRAINFILE=%1
+SHIFT
+if exist "%1" goto OkTESTFILE
+echo The test file %1 could not be found. >&2
 goto error
 
 :OkTESTFILE
+set TESTFILE=%1
+SHIFT
+
+set MODELFILE=%1
+SHIFT
+
 @REM ==== VALIDATE ENVIRONMENT ====
 if not "%JAVA_HOME%" == "" goto OkJHOME
 echo Error: JAVA_HOME not found in your environment. >&2
@@ -46,7 +59,8 @@ goto error
 
 :OkSCJ
 @echo on
-java -mx16000m -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -trainFile %1 -testFile %2 -1.splitWordsRegexp "\s" -1.useAllSplitWordPairs -useQN -displayedColumn 2  -printFeatures -loadClassifier models\nvd.ser.gz
+@echo Running the Stanford CoreNLP Natural Language Processing Toolkit 3.7.0 and Classifier: http://nlp.stanford.edu/software/.
+java -mx24g -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -trainFile %TRAINFILE% -testFile %TESTFILE% -1.splitWordsRegexp "\s+" -1.useAllSplitWordPairs -1.useSplitPrefixSuffixNGrams -useQN -sigma 2 -displayedColumn 2  -printFeatures -serializeTo %MODELFILE% %1 %2 %3 %4 %5 %6
 @echo off
 exit /B %ERROR_CODE%
 

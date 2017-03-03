@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,7 +16,7 @@ namespace CWEBot.Interfaces
     public abstract class Extractor : IExtractor
     {
         #region Constructors
-        public Extractor(FileInfo outputFile, bool overwrite, bool append, ILogger logger, Dictionary<string, string> options = null)
+        public Extractor(FileInfo outputFile, bool overwrite, bool append, ILogger logger, Dictionary<string, object> options = null)
         {
             Contract.Requires(outputFile != null);
             Contract.Requires(logger != null);
@@ -24,16 +25,40 @@ namespace CWEBot.Interfaces
             JsonOutputFile = outputFile;
             Overwrite = overwrite;
             Append = append;
-            if (Append && JsonOutputFile.Exists)
+            if (options.ContainsKey("CompressOutputFile"))
             {
-                using (StreamReader f = new StreamReader(JsonOutputFile.OpenRead()))
-                using (JsonTextReader reader = new JsonTextReader(f))
+                CompressOutputFile = true;
+            }
+            if (!CompressOutputFile)
+            {
+                if (Append && JsonOutputFile.Exists)
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    ExtractedRecords = serializer.Deserialize<List<Record>>(reader);
-                    L.Information("{file} exists with {r} records and will be appended to.", ExtractedRecords.Count);
+                    using (StreamReader f = new StreamReader(JsonOutputFile.OpenRead()))
+                    using (JsonTextReader reader = new JsonTextReader(f))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        ExtractedRecords = serializer.Deserialize<List<Record>>(reader);
+                        L.Information("{file} exists with {r} records and will be appended to.", JsonOutputFile, ExtractedRecords.Count);
+                    }
                 }
             }
+            else
+            {
+                if (Append && JsonOutputFile.Exists)
+                {
+                    using (GZipStream gzs = new GZipStream(JsonOutputFile.OpenRead(), CompressionMode.Decompress))
+                    using (StreamReader f = new StreamReader(gzs))
+                    using (JsonTextReader reader = new JsonTextReader(f))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        ExtractedRecords = serializer.Deserialize<List<Record>>(reader);
+                        L.Information("{file} exists with {r} records and will be appended to.", JsonOutputFile, ExtractedRecords.Count);
+                    }
+                }
+
+            }
+            
+
         }
         #endregion
 
@@ -43,11 +68,12 @@ namespace CWEBot.Interfaces
 
         #region Properties
         public ILogger L { get; set; }
-        public Dictionary<string, string> Options { get; protected set; }
+        public Dictionary<string, object> Options { get; protected set; }
         public FileInfo JsonOutputFile { get; protected set; }
         public List<Record> ExtractedRecords { get; protected set; } = new List<Record>();
         public bool Overwrite { get; protected set; } = false;
         public bool Append { get; protected set; } = false;
+        public bool CompressOutputFile { get; protected set; } = false;
         #endregion
 
         #region Methods
@@ -58,9 +84,21 @@ namespace CWEBot.Interfaces
             Contract.Requires(JsonOutputFile != null && JsonOutputFile.Exists);
             JsonSerializer serializer = new JsonSerializer();
             serializer.Formatting = Formatting.Indented;
-            using (StreamWriter sw = new StreamWriter(JsonOutputFile.FullName, false, Encoding.UTF8))
+            if (!CompressOutputFile)
             {
-                serializer.Serialize(sw, ExtractedRecords);
+                using (StreamWriter sw = new StreamWriter(JsonOutputFile.FullName, false, Encoding.UTF8))
+                {
+                    serializer.Serialize(sw, ExtractedRecords);
+                }
+            }
+            else
+            {
+                using (FileStream fs = new FileStream(JsonOutputFile.FullName, FileMode.Create))
+                using (GZipStream gzs = new GZipStream(fs, CompressionMode.Compress))
+                using (StreamWriter sw = new StreamWriter(gzs, Encoding.UTF8))
+                {
+                    serializer.Serialize(sw, ExtractedRecords);
+                }
             }
             L.Information("Wrote {0} records to {file}", ExtractedRecords.Count, JsonOutputFile.FullName);
             return true;

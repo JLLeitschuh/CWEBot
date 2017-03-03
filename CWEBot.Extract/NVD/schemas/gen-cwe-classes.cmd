@@ -1,0 +1,1 @@
+﻿xsd cwe_schema_v5.4.2.xsd /classes /order /f /n:CWEBot.Models

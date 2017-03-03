@@ -63,7 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtractStage.cs" />
-    <Compile Include="Transform.cs" />
+    <Compile Include="LoadStage.cs" />
+    <Compile Include="TransformStage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

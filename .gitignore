@@ -248,3 +248,5 @@ ModelManifest.xml
 *.tsv
 /*.json
 /*.tsv
+/models/nvd.9000.model.gz
+/models/nvd.20000.2.model.gz

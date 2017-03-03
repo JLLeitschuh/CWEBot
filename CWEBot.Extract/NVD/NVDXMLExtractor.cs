@@ -18,11 +18,11 @@ namespace CWEBot
     public class NVDXMLExtractor : Extractor
     {
         #region Constructirs
-        public NVDXMLExtractor(FileInfo outputFile, bool overwrite, bool append, ILogger logger, Dictionary<string, string> options) : base(outputFile, overwrite, append, logger, options)
+        public NVDXMLExtractor(FileInfo outputFile, bool overwrite, bool append, ILogger logger, Dictionary<string, object> options) : base(outputFile, overwrite, append, logger, options)
         {
             Contract.Requires(options != null && options.ContainsKey("InputFile"));
             L = logger.ForContext<NVDXMLExtractor>();
-            InputFile = new FileInfo(options["InputFile"]);
+            InputFile = new FileInfo((string) options["InputFile"]);
             Contract.Requires(InputFile.Exists);
         }
         #endregion
