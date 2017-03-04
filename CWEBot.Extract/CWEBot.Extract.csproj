@@ -48,10 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="NVD\NVDCVEFeed.cs" />
     <Compile Include="NVD\NVDXMLExtractor.cs" />
     <Compile Include="NVD\CWECatalog542.cs" />
+    <Compile Include="OSSI\Models\ExtractedRecord.cs" />
+    <Compile Include="OSSI\Models\Package.cs" />
+    <Compile Include="OSSI\Models\QueryResponse.cs" />
+    <Compile Include="OSSI\Models\Vulnerability.cs" />
+    <Compile Include="OSSI\OSSIndexExractor.cs" />
+    <Compile Include="OSSI\OSSIndexHttpClient.cs" />
+    <Compile Include="OSSI\OSSIndexHttpException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +102,7 @@
       <Name>CWEBot.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

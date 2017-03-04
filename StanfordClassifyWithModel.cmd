@@ -3,13 +3,19 @@
 set ERROR_CODE=0
 
 if not "%1" == "" goto OkARG1
-echo Error: Usage is StanfordClassifyWithModel modelFile testFile 
+echo Error: Usage is StanfordClassifyWithModel modelFile testFile resultsFile 
 goto error
 
 :OkARG1
-if not "%2" == "" goto OkARGS
-echo Error: Usage is StanfordClassifyWithModel modelFile testFile 
+if not "%2" == "" goto OkARG2
+echo Error: Usage is StanfordClassifyWithModel modelFile testFile resultsFile
 goto error
+
+:OkARG2
+if not "%3" == "" goto OkARGS
+echo Error: Usage is StanfordClassifyWithModel modelFile testFile resultsFile
+goto error
+
 
 :OkARGS
 if exist "%1" goto OkMODELFILE
@@ -25,6 +31,10 @@ goto error
 
 :OkTESTFILE
 set TESTFILE=%1
+SHIFT
+
+:OkRESULTSFILE
+set RESULTSFILE=%1
 SHIFT
 
 @REM ==== VALIDATE ENVIRONMENT ====
@@ -52,7 +62,7 @@ goto error
 :OkSCJ
 @echo Running the Stanford CoreNLP Natural Language Processing Toolkit 3.7.0 and Classifier: http://nlp.stanford.edu/software/.
 @echo on
-java -mx16000m -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -testFile %TESTFILE% -1.splitWordsRegexp "\s+" -1.useAllSplitWordPairs -useQN -displayedColumn 2  -printFeatures -loadClassifier %MODELFILE% %1 %2 %3 %4 %5 %6
+java -mx16000m -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -testFile %TESTFILE% -1.splitWordsRegexp "\s+" -1.useAllSplitWordPairs -useQN -displayedColumn 2  -printFeatures -loadClassifier %MODELFILE% %1 %2 %3 %4 %5 %6 %7 %8 %9 > %RESULTSFILE%
 @echo off
 exit /B %ERROR_CODE%
 

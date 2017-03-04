@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CWEBot.Core")]
-[assembly: AssemblyDescription("CWEBot : Automated CWE Classification of Vulnerabilities")]
+[assembly: AssemblyDescription("CWEBot core library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vor Security")]
-[assembly: AssemblyProduct("CWEBot")]
+[assembly: AssemblyProduct("CWEBot: Automated CWE Classification of Vulnerabilities")]
 [assembly: AssemblyCopyright("Copyright ©  2017 Vor Security")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.4.0")]
-[assembly: AssemblyFileVersion("0.0.4.0")]
+[assembly: AssemblyVersion("0.0.1.0")]
+[assembly: AssemblyFileVersion("0.0.1.0")]
