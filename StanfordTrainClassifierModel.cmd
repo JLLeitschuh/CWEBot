@@ -60,9 +60,9 @@ goto error
 :OkSCJ
 @echo on
 @echo Running the Stanford CoreNLP Natural Language Processing Toolkit 3.7.0 and Classifier: http://nlp.stanford.edu/software/.
-java -mx24g -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -trainFile %TRAINFILE% -testFile %TESTFILE% -1.splitWordsRegexp "\s+" -1.useAllSplitWordPairs -useQN -sigma 2 -displayedColumn 2  -printFeatures -serializeTo %MODELFILE% %1 %2 %3 %4 %5 %6
+java -mx32g -cp %STANFORD_CLASSIFIER_JAR% edu.stanford.nlp.classify.ColumnDataClassifier -trainFile %TRAINFILE% -testFile %TESTFILE% -1.splitWordsRegexp "\s+" -1.useAllSplitWordPairs -useQN -sigma 2 -displayedColumn 2  -printFeatures -serializeTo %MODELFILE% %1 %2 %3 %4 %5 %6 > %MODELFILE%.tsv
 @echo off
-exit /B %ERROR_CODE%
+exit /B %ERRORLEVEL%
 
 :error
 set ERROR_CODE=1
