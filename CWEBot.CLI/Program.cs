@@ -172,17 +172,13 @@ namespace CWEBot.CLI
             try
             {
                 List<string> parameters = ExtractOptions.ExtractParameters.ToList();
-                parameters.AddRange(ExtractOptions.ExtractParameters);
-                if (ExtractOptions.CompressOutputFile)
-                {
-                    parameters.Add("CompressOutputFile");
-                }
                 ExtractStage e = new ExtractStage(ExtractOptions.Extractor, ExtractOutputFile, ExtractOptions.OverwriteOutputFile, ExtractOptions.AppendToOutputFile,
-                    L, parameters);
+                    ExtractOptions.CompressOutputFile, ExtractOptions.Authentication, L, parameters);
                 return e.Run(ExtractOptions.VulnerabilitiesLimit, null);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                L.Error(e, "Exception thrown during extract stage.");
                 return false;
             }
 

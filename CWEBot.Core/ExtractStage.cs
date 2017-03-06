@@ -15,7 +15,7 @@ namespace CWEBot
 {
     public class ExtractStage
     {
-        public ExtractStage(string extractor, FileInfo outputFile, bool overwrite, bool append, ILogger logger, List<string> parameters)
+        public ExtractStage(string extractor, FileInfo outputFile, bool overwrite, bool append, bool compress, string authentication, ILogger logger, List<string> parameters)
         {
             L = logger.ForContext<ExtractStage>();
             if (extractor == "nvd")
@@ -31,7 +31,7 @@ namespace CWEBot
                     throw new ArgumentException("The input file parameter for the NVD extractor does not exist.", "parameters");
                 }
                 Dictionary<string, object> options = new Dictionary<string, object> { { "InputFile", parameters[0] } };
-                if (parameters.Contains("CompressOutputFile"))
+                if (compress)
                 {
                     options.Add("CompressOutputFile", true);
                 }
@@ -47,18 +47,22 @@ namespace CWEBot
             
                 Dictionary<string, object> options = new Dictionary<string, object> { { "PackageManager", parameters[0] } };
                 int packagesLimit;
-                if ((options.Count > 1) && !int.TryParse(parameters[1], out packagesLimit))
+                if ((parameters.Count > 1) && !int.TryParse(parameters[1], out packagesLimit))
                 {
                     throw new ArgumentException("The 2nd parameter is the packages limit and must be an integer.", "parameters");
                 } 
-                else if ((options.Count > 1) && int.TryParse(parameters[1], out packagesLimit))
+                else if ((parameters.Count > 1) && int.TryParse(parameters[1], out packagesLimit))
                 {
                     options.Add("PackagesLimit", packagesLimit);
 
                 }
-                if (parameters.Contains("CompressOutputFile"))
+                if (compress)
                 {
                     options.Add("CompressOutputFile", true);
+                }
+                if (!string.IsNullOrEmpty(authentication))
+                {
+                    options.Add("Authentication", authentication);
                 }
                 Extractor = new OSSIndexExtractor(outputFile, overwrite, append, L, options);
             }

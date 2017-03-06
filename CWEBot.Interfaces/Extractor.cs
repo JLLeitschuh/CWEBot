@@ -29,6 +29,10 @@ namespace CWEBot.Interfaces
             {
                 CompressOutputFile = true;
             }
+            if (options.ContainsKey("Authentication"))
+            {
+                Authentication = (string) options["Authentication"];
+            }
             if (!CompressOutputFile)
             {
                 if (Append && JsonOutputFile.Exists)
@@ -74,6 +78,7 @@ namespace CWEBot.Interfaces
         public bool Overwrite { get; protected set; } = false;
         public bool Append { get; protected set; } = false;
         public bool CompressOutputFile { get; protected set; } = false;
+        public string Authentication { get; protected set; } = string.Empty;
         #endregion
 
         #region Methods

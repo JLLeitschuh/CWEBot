@@ -28,9 +28,11 @@ namespace CWEBot.Extract.OSSIndex
             this.User = user;
             this.Password = password;
             this.ServerPublicKey = "";
-            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(password))
+            if (!string.IsNullOrEmpty(this.User) && !string.IsNullOrEmpty(this.Password))
             {
-                this.Credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", this.User, this.Password)));
+                //this.Credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", this.User, this.Password)));
+                this.Credentials = string.Format("{0}:{1}", this.User, this.Password);
+                L.Information("Using OSS Index API credentials for user {0}.", this.User);
             }
         }
         #endregion
@@ -56,6 +58,10 @@ namespace CWEBot.Extract.OSSIndex
             {
                 client.BaseAddress = new Uri("https://ossindex.net");
                 client.DefaultRequestHeaders.Accept.Clear();
+                if (!string.IsNullOrEmpty(Credentials))
+                {
+                    client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", Credentials);
+                }
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Add("user-agent", "CWEBot");
                 L.Information("Sending request {request}...", client.BaseAddress.ToString() + url);

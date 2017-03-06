@@ -28,19 +28,42 @@ namespace CWEBot
             {
                 PackagesLimit = (int)options["PackagesLimit"];
             }
-            
+            if (!string.IsNullOrEmpty(Authentication))
+            {
+                string[] a = Authentication.Split(":".ToCharArray());
+                if (a.Length != 2)
+                {
+                    throw new ArgumentException("The authentication string is not in the correct format.");
+                }
+                else
+                {
+                    User = a[0];
+                    Token = a[1];
+                }
+            }
         }
         #endregion
 
-        #region PackageManager
+        #region Properties
         public string PackageManager { get; protected set; }
         public int PackagesLimit { get; protected set; }
+        public string User { get; protected set; } = string.Empty;
+        public string Token { get; protected set; } = string.Empty;
         #endregion
 
         #region Overriden Methods
         public override int Extract(int vulnerabilitiesLimit, Dictionary<string, string> options)
         {
-            OSSIndexHttpClient client = new OSSIndexHttpClient("2.0");
+            OSSIndexHttpClient client = null;
+            if (!string.IsNullOrEmpty(Authentication))
+            {
+                
+                client = new OSSIndexHttpClient("2.0", User, Token);
+            }
+            else
+            {
+                client = new OSSIndexHttpClient("2.0");
+            }
             List<ExtractedRecord> records = new List<ExtractedRecord>();
             VulnerablityComparator vc = new VulnerablityComparator();
             ExtractedRecordComparator erc = new ExtractedRecordComparator();

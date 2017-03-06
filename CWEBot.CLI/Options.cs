@@ -25,6 +25,9 @@ namespace CWEBot.CLI
         [Option('v', "vulnerabilities", Required = false, HelpText = "Limit the number of vulnerabilities extracted.", Default = 0)]
         public int VulnerabilitiesLimit { get; set; }
 
+        [Option('A', "authentication", Required = true, HelpText = "Authentication string (if necessary) that will be used by the selected extractor.")]
+        public string Authentication { get; set; }
+
         [Value(0, Required = true, HelpText = "The extractor to use.")]
         public string Extractor { get; set; }
 
