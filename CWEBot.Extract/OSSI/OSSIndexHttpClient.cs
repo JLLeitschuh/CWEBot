@@ -20,7 +20,7 @@ namespace CWEBot.Extract.OSSIndex
         public OSSIndexHttpClient(string api_version, string user = "", string password = "", string server_public_key = "")
         {
             Contract.Requires(string.IsNullOrEmpty(api_version), "api_version must not be null.");
-            //Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(user), "user must not be null.");
+            //Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(user), "user must not be null.")
             //Contract.Requires<ArgumentNullException>(string.IsNullOrEmpty(password), "password must not be null.");
             L = Log.ForContext<OSSIndexHttpClient>();
             this.ApiVersion = api_version;
